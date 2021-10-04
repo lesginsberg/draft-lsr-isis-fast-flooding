@@ -62,53 +62,6 @@
 			</address>
 		</author>
 
-		<author initials="G." surname="Van de Velde" fullname="Gunter Van de Velde">
-			<organization>Nokia</organization>
-			<address>
-				<postal>
-					<street>Copernicuslaan 50</street>
-					<city>Antwerp</city>
-					<code>2018</code>
-					<country>Belgium</country>
-				</postal>
-				<email>gunter.van_de_velde@nokia.com</email>
-			</address>
-		</author>
-
-		<author initials="C." surname="Bowers" fullname="Chris Bowers">
-			<organization>Juniper Networks, Inc.</organization>
-			<address>
-				<postal>
-					<street>1194 N. Mathilda Avenue</street>
-					<city>Sunnyvale</city>
-					<region>CA</region>
-					<code>94089</code>
-					<country>USA</country>
-				</postal>
-				<email>cbowers@juniper.net</email>
-			</address>
-		</author>
-
-
-
-    <author fullname="Peter Psenak" initials="P" surname="Psenak">
-      <organization>Cisco Systems</organization>
-
-      <address>
-        <postal>
-          <street>Apollo Business Center Mlynske nivy 43</street>
-
-          <city>Bratislava</city>
-
-          <code>821 09</code>
-
-          <country>Slovakia</country>
-        </postal>
-
-        <email>ppsenak@cisco.com</email>
-      </address>
-    </author>
-
     <author fullname="Marek Karasek" initials="M" surname="Karasek">
       <organization>Cisco Systems</organization>
 
@@ -135,6 +88,50 @@
       </address>
     </author>
 
+		<author initials="C." surname="Bowers" fullname="Chris Bowers">
+			<organization>Juniper Networks, Inc.</organization>
+			<address>
+				<postal>
+					<street>1194 N. Mathilda Avenue</street>
+					<city>Sunnyvale</city>
+					<region>CA</region>
+					<code>94089</code>
+					<country>USA</country>
+				</postal>
+				<email>cbowers@juniper.net</email>
+			</address>
+		</author>
+
+		<author initials="G." surname="Van de Velde" fullname="Gunter Van de Velde">
+			<organization>Nokia</organization>
+			<address>
+				<postal>
+					<street>Copernicuslaan 50</street>
+					<city>Antwerp</city>
+					<code>2018</code>
+					<country>Belgium</country>
+				</postal>
+				<email>gunter.van_de_velde@nokia.com</email>
+			</address>
+		</author>
+
+    <author fullname="Peter Psenak" initials="P" surname="Psenak">
+      <organization>Cisco Systems</organization>
+
+      <address>
+        <postal>
+          <street>Apollo Business Center Mlynske nivy 43</street>
+
+          <city>Bratislava</city>
+
+          <code>821 09</code>
+
+          <country>Slovakia</country>
+        </postal>
+
+        <email>ppsenak@cisco.com</email>
+      </address>
+    </author>
 
 
     <author fullname="Tony Przygienda" initials="T" surname="Przygienda">
@@ -163,19 +160,7 @@
       </address>
     </author>
 
-		<author initials="Jayesh" surname="J" fullname="Jayesh J">
-			<organization>Juniper Networks, Inc.</organization>
-			<address>
-				<postal>
-					<street>1194 N. Mathilda Avenue</street>
-					<city>Sunnyvale</city>
-					<region>CA</region>
-					<code>94089</code>
-					<country>USA</country>
-				</postal>
-				<email>jayeshj@juniper.net</email>
-			</address>
-		</author>
+
 
 
 
@@ -615,8 +600,9 @@ cur_rtt = 7/8 * cur_rtt + 1/8 * rtt_est
 </section>
 
 <section anchor="Contributors" title="Contributors">
-	<t>The following people have contributed to this document:</t>
+	<t>The following people gave a substantial contribution to the content of this document and should be considered as coauthors:</t>
 <t>Acee Lindem, Cisco Systems, acee@cisco.com</t>
+<t>Jayesh J, Juniper Networks,jayeshj@juniper.net</t>
 </section>
 
 <section anchor="Acknowledgments" title="Acknowledgments">
