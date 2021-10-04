@@ -167,9 +167,13 @@
 
 		<date year="2021"/>
 		<abstract>
-		      <t>Link State PDU flooding rates in use are much slower than what modern
-      networks can support. The use of IS-IS at larger scale requires faster
-      flooding rates to achieve desired convergence goals. This document defines a new TLV for Hello and PSNP messages to signal flooding parameters from the LSP receiver to the LSP sender. These parameters may be used by flow and congestion control algorithms to improve the flooding throughput, reduce LSPs losses and retransmissions due to receiver overload, and avoid manual tuning of flooding parameters by the network operator. Two examples of algorithm are provided for illustration purpose.</t>
+		      <t>   Link State PDU flooding rates in use are much slower than what modern
+   networks can support.  The use of IS-IS at larger scale requires
+   faster flooding rates to achieve desired convergence goals.  This
+   document discusses the need for faster flooding, the issues of concern
+   when using faster flooding, and two candidate algorithms to achieve
+   faster flooding. It also defines protocol extensions to signal parameters of the LSPs receiver.
+</t>
 		</abstract>
 	</front>
 	<middle>
