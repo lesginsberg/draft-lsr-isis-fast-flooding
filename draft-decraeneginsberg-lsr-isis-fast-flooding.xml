@@ -205,9 +205,19 @@
       <t>Increasing the LSP flooding rate therefore becomes an essential element
       of supporting greater network scale.</t>
 
-			<t>Improving the LSP flooding rate is complementary to other proposed extensions to reduce LSP flooding traffic by reducing the flooding topology such as Mesh Groups <xref target="RFC2973"/> or Dynamic Flooding
-				<xref target="I-D.ietf-lsr-dynamic-flooding"/>. Reducing the flooding topology does not reduce the size of the LSDB or the total number of LSPs to be exchanged between two nodes, so increasing the overall flooding speed can be beneficial for nodes implementing Dynamic Flooding. The reverse is also true: Dynamic Flooding reduces the number of flooding neighbors and can be further enhanced by selecting the topologically appropriate neighbors that support improved flooding performance.
-			</t>
+      <t>
+	Improving the LSP flooding rate is complementary to protocol
+	extensions that reduce LSP flooding traffic by reducing the
+	flooding topology such as Mesh Groups <xref target="RFC2973"/>
+	or Dynamic Flooding <xref
+	target="I-D.ietf-lsr-dynamic-flooding"/>. Reduction of the
+	flooding topology does not alter the number of LSPs required
+	to be exchanged between two nodes, so increasing the overall
+	flooding speed is still beneficial when such extensions are in
+	use. It is also possible that the flooding topology can be
+	reduced in ways that prefer the use of neighbors that support
+	improved flooding performance.
+      </t>
 
     </section>
 
@@ -226,25 +236,37 @@
       on the order of seconds and the specified timer values reflect that.
       Here are some examples:</t>
 
-      <t><figure>
-          <artwork><![CDATA[  minimumLSPGenerationInterval - This is the minimum time interval
+      <t>
+	<figure>
+          <artwork><![CDATA[minimumLSPGenerationInterval - This is the minimum time interval
      between generation of Link State PDUs. A source Intermediate 
      system shall wait at least this long before re-generating one
      of its own Link State PDUs.
-
-  minimumLSPTransmissionInterval - This is the amount of time an 
+]]></artwork></figure>
+      </t>
+      <t>
+	The recommended value is 30 seconds.
+      </t>
+      <t>
+	<figure>
+	  <artwork><![CDATA[minimumLSPTransmissionInterval - This is the amount of time an 
      Intermediate system shall wait before further propagating 
      another Link State PDU from the same source system. 
-
-  partialSNPInterval - This is the amount of time between periodic 
+]]></artwork></figure>
+      </t>
+      <t>
+	The recommended value is 5 seconds.
+      </t>
+      <t>
+	<figure>
+	  <artwork><![CDATA[partialSNPInterval - This is the amount of time between periodic 
      action for transmission of Partial Sequence Number PDUs.
      It shall be less than minimumLSPTransmission-Interval.
-]]></artwork>
-        </figure></t>
-
-	<t>
-	  The recommended values were 30 seconds, 5 seconds, and 2 seconds, respectively.
-	</t>
+]]></artwork></figure>
+      </t>
+      <t>
+	The recommended value is 2 seconds.
+      </t>
       <t>Most relevant to a discussion of the LSP flooding rate is the recommended
       interval between the transmission of two different LSPs on a given
       interface.</t>
@@ -296,20 +318,40 @@
 
 
 		<section anchor="FloodingTLV" title="Flooding Parameters TLV">
-			<t>This document defines a new Type-Length-Value tuple (TLV) called the "Flooding Parameters TLV" that may be included in IS to IS Hello (IIH) or Partial Sequence Number PDUs (PSNPs). It allows the LSP receiver to advertise flooding related parameters and capabilities and allows the LSP sender to better adapt to the receiver.</t>
+		  <t>
+		    This document defines a new Type-Length-Value
+		    tuple (TLV) called the "Flooding Parameters TLV"
+		    that may be included in IS to IS Hellos (IIH) or
+		    Partial Sequence Number PDUs (PSNPs). It allows
+		    IS-IS implementations to advertise flooding
+		    related parameters and capabilities which may be
+		    of use to the peer in support of faster flooding.
+		  </t>
 			<t>Type: TBD1</t>
 			<t>Length: variable, the size in octets of the Value field</t>
-			<t>Value: a list of sub-TLVs</t>
+			<t>Value: Onee or more sub-TLVs</t>
 			<t>Two sub-TLVs are defined in this document. The support of any sub-TLV is OPTIONAL.</t>
-			<t>For a given IS-IS adjacency, the Flooding Parameters TLV does not need to be advertised in each IIH or PSNP. The LSP transmitter uses the latest received value for each parameter until a new value is advertised by the LSP receiver. However, IIHs and PSNPs are not reliably exchanged, and may never be received, so parameters MAY be sent even if there is no change in value since the last transmission. For a parameter which has never been advertised, the LSP transmitter SHOULD use its local default value. That value SHOULD be configurable on a per node basis and MAY be configurable on a per interface basis.</t>
+			<t>
+			For a given IS-IS adjacency, the Flooding
+			Parameters TLV does not need to be advertised
+			in each IIH or PSNP. The LSP transmitter uses
+			the latest received value for each parameter
+			until a new value is advertised by the LSP
+			receiver. However, IIHs and PSNPs are not
+			reliably exchanged, and may never be received,
+			so parameters SHOULD be sent even if there is no
+			change in value since the last
+			transmission. For a parameter which has never
+			been advertised, the LSP transmitter SHOULD
+			use its local default value. That value SHOULD
+			be configurable on a per node basis and MAY be
+			configurable on a per interface basis.
+			</t> 
 			<section anchor="LSPReceptionWindow" title="LSP Burst Window sub-TLV">
-				<t>The LSP Burst Window sub-TLV advertises the maximum number of un-acknowledged LSPs that the node can receive with no separation interval between LSPs.</t>
+				<t>The LSP Burst Window sub-TLV advertises the maximum number of LSPs that the node can receive with no separation interval between LSPs.</t>
 				<t>Type: 1</t>
 				<t>Length: 4 octets</t>
-				<t>Value: number of un-acknowledged LSPs that can be sent back to back</t>
-				<t>Note that if an LSP has not been acknowledged and is sent again, it does not count twice. The reason is that this LSP is assumed to be lost and hence not in a buffer at the receiver.
-				[This requires some clarification. Why would we send the same LSP twice in the same burst? If it is a retransmission of an LSP that was originally sent outside of the current burst, then shouldn't it count as part of the burst? -- Tony L.]</t>
-
+				<t>Value: number of LSPs that can be sent back to back</t>
 			</section>
 			<section anchor="InterfaceLSPTransmissionInterval" title="LSP Transmission Interval sub-TLV">
 				<t>The LSP Transmission Interval sub-TLV advertises the minimum interval, in micro-seconds, between LSPs arrivals which can be received on this interface, after the maximum number of un-acknowledged LSPs has been sent.</t>
@@ -341,9 +383,11 @@
         used when sending PSNPs. This provides some optimization as multiple
         LSPs can be acknowledged in a single PSNP.</t>
 
-        <t>If faster LSP flooding is to be used safely, it is necessary that
-        LSPs be acknowledged more promptly as well. This requires a reduction
-        in the delay in sending PSNPs.</t>
+        <t>
+	  Faster LSP flooding benefits from a faster feedback
+          loop. This requires a reduction in the delay in sending
+          PSNPs.
+	</t>
 
 		<t>The receiver SHOULD reduce its partialSNPInterval. The choice of this lower value is a local choice. It may depend on the available processing power of the node, the number of adjacencies, and the requirement to synchronize the LSDB more quickly. 200 ms seems to be a reasonable value.</t>
 		<t>In addition to the timer based partialSNPInterval, the receiver SHOULD keep track of the number of unacknowledged LSPs per circuit and level. When this number exceeds a preset threshold of LSPs Per PSNP (LPP), the receiver SHOULD immediately send a PSNP without waiting for the PSNP timer to expire. In case of a burst of LSPs, this allows for more frequent PSNPs, giving faster feedback to the sender. Outside of the burst case, the usual time-based PSNP approach comes into effect. If an LSP Burst Window is advertised, LPP SHOULD be lower and the best performance is achieved when LPP is an integer fraction of the LSP Burst Window. This number SHOULD also be lower or equal to 90 as this is the maximum number of LSPs that can be acknowledged in a PSNP, hence waiting longer would not reduce the number of PSNPs sent but would delay the acknowledgements. Based on experimental evidence, 15 unacknowledged LSPs is a good value assuming that the LSP Burst Window is at least 30.</t>
@@ -369,10 +413,9 @@
         triggering an adjacency timeout which in turn would require additional
         LSPs to be updated.</t>
 
-        <t>CSNPs and PSNPs serve to acknowledge or trigger the transmission of specified
+        <t>CSNPs and PSNPs serve to trigger or acknowledge the transmission of specified
         LSPs. On a point-to-point link, PSNPs acknowledge the receipt of one
-        or more LSPs. Because PSNPs use TLVs in the
-        body, it is possible to acknowledge multiple LSPs using a single PSNP.
+        or more LSPs. 
         For this reason, <xref target="ISO10589"/> specifies a delay
         (partialSNPInterval) before sending a PSNP so that the number of PSNPs
         required to be sent is reduced. On receipt of a PSNP, the set of LSPs
@@ -399,7 +442,7 @@
 			<xref target="RFC0793">RFC 793</xref> and relies on the flow control, congestion control, and reliability mechanisms of the protocol.
 			</t>
 			<t>Flow control creates a control loop between a transmiter and a receiver so that the transmitter does not overwhelm the receiver. TCP provides a mean for the receiver to govern the amount of data sent by the sender through the use of a sliding window.</t>
-			<t>Congestion control creats multiple interacting control loops between multiple transmitters and multiple receivers to prevent the transmitters  from overwhelming the overall network. For an IS-IS adjacency, the network between two IS-IS neighbors is relatively limited in scope and consist of a link that is typically over-sized compared to the capability of the IS-IS speakers, but may also includes components inside both routers such as a switching fabric, line card CPU, and forwarding plane buffers that may experience congestion. These resources may be shared across multiple IS-IS adjacencies for the system and it is the responsibility of congestion control to ensure that these are shared reasonably.</t>
+			<t>Congestion control creates multiple interacting control loops between multiple transmitters and multiple receivers to prevent the transmitters  from overwhelming the overall network. For an IS-IS adjacency, the network between two IS-IS neighbors is relatively limited in scope and consist of a link that is typically over-sized compared to the capability of the IS-IS speakers, but may also includes components inside both routers such as a switching fabric, line card CPU, and forwarding plane buffers that may experience congestion. These resources may be shared across multiple IS-IS adjacencies for the system and it is the responsibility of congestion control to ensure that these are shared reasonably.</t>
 			<t>Reliability provides loss detection and recovery. IS-IS already has mechanisms to ensure the reliable transmission of LSPs. This is not changed by this document.</t>
 			
 			<t>The following two sections provides examples of Flow and/or Congestion control algorithms as examples that may be implemented by taking advantage of the extensions defined in this document. They are non-normative. An implementation may implement any congestion control algorithm.</t>
@@ -409,7 +452,30 @@
 
 		
 		<section anchor="FlowControl" title="Flow control">
-			<t>A flow control mechanism creats a control loop between a single instance of a transmitter and a single receiver. This example uses a mechanism similar to the TCP receive window to allow the receiver to govern the amount of data sent by the sender. This receive window indicates an allowed number of LSPs that the sender may transmit before waiting for an acknowledgment. The size of the receive window, in units of LSPs, is advertised in the LSP Burst Window sub-TLV.</t>
+		  <t>
+		    A flow control mechanism creates a control loop
+		    between a single instance of a transmitter and a
+		    single receiver. This example uses a mechanism
+		    similar to the TCP receive window to allow the
+		    receiver to govern the amount of data sent by the
+		    sender. This receive window ('rwin') indicates an
+		    allowed number of LSPs that the sender may
+		    transmit before waiting for an acknowledgment. The
+		    size of the receive window, in units of LSPs, is
+		    initialized with the value advertised by the
+		    receiver in the LSP Burst Window sub-TLV. If no
+		    value is advertised, the transmitter should
+		    initialize rwin with its own local value.
+		  </t>
+		  <t>
+		    When the transmitter sends a set of LSPs to the
+		    receiver, it subtracts the number of LSPs sent
+		    from rwin. If the transmitter receives a PSNP,
+		    then rwin is incremented for each acknowledged
+		    LSP. The transmitter must ensure that the value of
+		    rwin never goes negative.
+		  </t>
+
 			<section anchor="TLVoperationP2P" title="Operation on a point to point interface">
 
 				<t>By sending the LSP Burst Window sub-TLV, a node advertises to its neighbor its ability to receive that many un-acknowledged LSPs from the neighbor, with no separation interval. This is akin to a receive window or sliding window in flow control. In some implementations, this value should reflect the IS-IS socket buffer size. Special care must be taken to leave space for CSNP and PSNP (SNP) PDUs and IIHs if they share the same input queue. In this case, this document suggests advertising an LSP Burst Window corresponding to half the size of the IS-IS input queue. </t>
