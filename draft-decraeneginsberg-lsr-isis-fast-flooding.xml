@@ -390,15 +390,14 @@
 					</artwork>
 				</figure>
 			</t>
-			<t>When the O flag is set, the LSP will be acknowledged in the order they are received: a PSNP acknowledging N LSPs is acknowledging the N oldest LSPs received. The order inside the PSNP is meaningless. If the sender keeps track of the order to LSP sent, this indication allows a fast detection of loss of LSP. This MUST NOT be used to trigger faster retransmission of LSP. This MAY be used to trigger a congestion signal.</t>
+			<t>When the O flag is set, the LSP will be acknowledged in the order they are received: a PSNP acknowledging N LSPs is acknowledging the N oldest LSPs received. The order inside the PSNP is meaningless. If the sender keeps track of the order of LSPs sent, the ordering allows the fast detection of the loss of an LSP. This MUST NOT be used to trigger faster retransmission of an LSP. This MAY be used as an indication of a congestion event.</t>
 		</section>
 
 		<section anchor="TLVoperationLAN" title="Operation on a LAN interface">
 			<t>On a LAN interface, all LSPs are link-level multicasts. Each LSP sent will be received by all ISs on the LAN and each IS will receive LSPs from all transmitters. In this section, we clarify how the flooding parameters should be interpreted in the context of a LAN.</t>
 			<t>An LSP receiver on a LAN will communicate its desired flooding parameters using a single Flooding Parameters TLV, copies of which will be received by all transmitters. The flooding parameters sent by the LSP receiver MUST be understood as instructions from the receiver to each transmitter about the desired maximum transmit characteristics of each transmitter. The receiver is aware that there are multiple transmitters that can send LSPs to the receiver LAN interface. The receiver might want to take that into account by advertising more conservative values, e.g. a higher LSP Transmission Interval. When the transmitters receive the LSP Transmission Interval value advertised by a LSP receiver, the transmitters should rate limit LSPs according to the advertised flooding parameters. They should not apply any further interpretation to the flooding parameters advertised by the receiver.</t>
 			<t>A given LSP transmitter will receive multiple flooding parameter advertisements from different receivers that may carry different flooding parameter values. A given transmitter SHOULD use the most convervative value on a per parameter basis. For example, if the transmitter receives multiple LSP Burst Window values, it should use the smallest value.</t>
-			<t>In order for the LSP Burst Window to be a useful parameter, an LSP transmitter needs to be able to keep track of the number of un-acknowledged LSPs it has sent to a given LSP receiver. On a LAN there is no explicit acknowledgment of the receipt of LSPs between a given LSP transmitter and a given LSP receiver. However, an LSP transmitter on a LAN can infer whether any LSP receiver on the LAN has requested retransmission of LSPs from the DIS by monitoring PSNPs generated on the LAN. If no PSNPs have been generated on the LAN for a suitable period of time, then an LSP transmitter can safely set the number of un-acknowledged LSPs to zero. Since this suitable period of time is much higher than the fast acknowledgment of LSPs defined in <xref target="LSPACKRate"/>
-,
+			<t>In order for the LSP Burst Window to be a useful parameter, an LSP transmitter needs to be able to keep track of the number of un-acknowledged LSPs it has sent to a given LSP receiver. On a LAN there is no explicit acknowledgment of the receipt of LSPs between a given LSP transmitter and a given LSP receiver. However, an LSP transmitter on a LAN can infer whether any LSP receiver on the LAN has requested retransmission of LSPs from the DIS by monitoring PSNPs generated on the LAN. If no PSNPs have been generated on the LAN for a suitable period of time, then an LSP transmitter can safely set the number of un-acknowledged LSPs to zero. Since this suitable period of time is much higher than the fast acknowledgment of LSPs defined in <xref target="LSPACKRate"/>,
 		the sustainable transmission rate of LSPs will be much slower on a LAN interface than on a point to point interface. The LSP Burst Window is still very useful for the first burst of LSPs sent, especially in the case of a single node failure that requires the flooding of a relatively small number of LSPs.
 			</t>
 		</section>
@@ -595,9 +594,7 @@ cur_rtt = 7/8 * cur_rtt + 1/8 * rtt_est
 				<section anchor="cc_remarks" title="Remarks">
 					<t>This algorithm's performance is dependent on the LPP value. Indeed, the smaller LPP is, the more information is available for the congestion control algorithm to perform well. However, it also increases the resources spent on sending PSNPs, so a tradeoff must be made. This document recommends to use an LPP of 15 or less.</t>
 
-					<t>Note that this congestion control algorithm benefits from the extensions proposed in this document. The advertisement of a receive window from the receiver (<xref target="FlowControl"/>
-) avoids the use of an arbitrary maximum value by the sender. The faster acknowledgment of LSPs (<xref target="LSPACKRate"/>
-) allows for a faster control loop and hence a faster increase of the congestion window in the absence of congestion.
+					<t>Note that this congestion control algorithm benefits from the extensions proposed in this document. The advertisement of a receive window from the receiver (<xref target="FlowControl"/>) avoids the use of an arbitrary maximum value by the sender. The faster acknowledgment of LSPs (<xref target="LSPACKRate"/>) allows for a faster control loop and hence a faster increase of the congestion window in the absence of congestion.
 				</t>
 			</section>
 		</section>
@@ -610,8 +607,7 @@ cur_rtt = 7/8 * cur_rtt + 1/8 * rtt_est
 		</section>
 
 		<section anchor="OPS_Considerations" title="Operation considerations">
-			<t>As discussed in  <xref target="TLVoperationLAN"/>
-, the solution is more effective on point to point adjacencies. Hence a broadcast interface (e.g. Ethernet) only shared by two IS-IS neighbhors should be configured as point to point in order to have a more effective flooding.</t>
+			<t>As discussed in  <xref target="TLVoperationLAN"/>, the solution is more effective on point to point adjacencies. Hence a broadcast interface (e.g. Ethernet) only shared by two IS-IS neighbhors should be configured as point to point in order to have a more effective flooding.</t>
 		</section>
 	</section>
 	<section anchor="ControlExample2" title="Congestion Control algorithm: Example 2">
