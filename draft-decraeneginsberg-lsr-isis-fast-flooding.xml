@@ -393,6 +393,7 @@
 			<t>When the O flag is set, the LSP will be acknowledged in the order they are received: a PSNP acknowledging N LSPs is acknowledging the N oldest LSPs received. The order inside the PSNP is meaningless. If the sender keeps track of the order to LSP sent, this indication allows a fast detection of loss of LSP. This MUST NOT be used to trigger faster retransmission of LSP. This MAY be used to trigger a congestion signal.</t>
 		</section>
 
+
       <section anchor="partialSNPI" title="Partial SNP Interval sub-TLV">
         <t>The Partial SNP Interval sub-TLV advertises the amount of
 	time in milliseconds between periodic action for transmission of Partial
@@ -412,6 +413,7 @@
         received on a given interface.</t>
       </section>
 
+
 		<section anchor="TLVoperationLAN" title="Operation on a LAN interface">
 			<t>On a LAN interface, all LSPs are link-level multicasts. Each LSP sent will be received by all ISs on the LAN and each IS will receive LSPs from all transmitters. In this section, we clarify how the flooding parameters should be interpreted in the context of a LAN.</t>
 			<t>An LSP receiver on a LAN will communicate its desired flooding parameters using a single Flooding Parameters TLV, copies of which will be received by all transmitters. The flooding parameters sent by the LSP receiver MUST be understood as instructions from the receiver to each transmitter about the desired maximum transmit characteristics of each transmitter. The receiver is aware that there are multiple transmitters that can send LSPs to the receiver LAN interface. The receiver might want to take that into account by advertising more conservative values, e.g. a higher LSP Transmission Interval. When the transmitters receive the LSP Transmission Interval value advertised by a LSP receiver, the transmitters should rate limit LSPs according to the advertised flooding parameters. They should not apply any further interpretation to the flooding parameters advertised by the receiver.</t>
@@ -424,8 +426,8 @@
 
 	</section>
 
-	<section anchor="Receiver" title="Performance improvement on the receiver">
 
+	<section anchor="Receiver" title="Performance improvement on the receiver">
 		<t>This section defines two behaviors that SHOULD be implemented on the receiver.</t>
 
 
@@ -621,6 +623,7 @@ cur_rtt = 7/8 * cur_rtt + 1/8 * rtt_est
 			</section>
 		</section>
 
+
 		<section anchor="sec_determining_values" title="Determining values to be advertised in the Flooding Parameters TLV">
 			<t>The values that a receiver advertises do not need to be perfect. If the values are too low then the transmitter will not use the full bandwidth or available CPU resources. If the values are too high then the receiver may drop some LSPs during the first RTT and this loss will reduce the usable receive window and the protocol mechanisms will allow the adjacency to recover. Flooding several orders of magnitude slower than both nodes can achieve will hurt performance, as will consistently overloading the receiver.</t>
 			<t>The values advertised need not be dynamic as feedback is provided by the acknowledgment of LSPs in SNP messages. Acknowledgments provide a feedback loop on how fast the LSPs are processed by the receiver. They also signal that the LSPs can be removed from receive window, explicitly signaling to the sender that more LSPs may be sent. By advertising relatively static parameters, we expect to produce overall flooding behavior similar to what might be achieved by manually configuring per-interface LSP rate limiting on all interfaces in the network. The advertised values may be based, for example, on an offline tests of the overall LSP processing speed for a particular set of hardware and the number of interfaces configured for IS-IS. With such a formula, the values advertised in the Flooding Parameters TLV would only change when additional IS-IS interfaces are configured.</t>
@@ -726,6 +729,7 @@ cur_rtt = 7/8 * cur_rtt + 1/8 * rtt_est
 
     <section anchor="IANA_Consideration" title="IANA Considerations">
 
+
 	<t>IANA is requested to allocate one TLV from the IS-IS TLV codepoint registry.</t>
 	<figure anchor="IANA_Registration" title=''>
 		<preamble></preamble>
@@ -776,6 +780,7 @@ cur_rtt = 7/8 * cur_rtt + 1/8 * rtt_est
         </figure></t>
     </section>
     <section anchor="Security" title="Security Considerations" toc="default">
+
 	<t>
     Security concerns for IS-IS are addressed in <xref target="ISO10589"/>
 ,
