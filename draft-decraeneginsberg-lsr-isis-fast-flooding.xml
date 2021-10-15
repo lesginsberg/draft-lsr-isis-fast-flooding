@@ -36,6 +36,7 @@
 					<country>USA</country>
 				</postal>
 
+
 				<email>ginsberg@cisco.com</email>
 			</address>
 		</author>
@@ -325,6 +326,7 @@
 
 
 
+
 	<section anchor="FloodingTLV" title="Flooding Parameters TLV">
 		<t>
 		    This document defines a new Type-Length-Value
@@ -337,8 +339,10 @@
 		</t>
 		<t>Type: TBD1</t>
 		<t>Length: variable, the size in octets of the Value field</t>
-		<t>Value: Onee or more sub-TLVs</t>
-		<t>Two sub-TLVs are defined in this document. The support of any sub-TLV is OPTIONAL.</t>
+
+		<t>Value: One or more sub-TLVs</t>
+		<t>Several sub-TLVs are defined in this document. The support of any sub-TLV is OPTIONAL.</t>
+
 		<t>
 			For a given IS-IS adjacency, the Flooding
 			Parameters TLV does not need to be advertised
@@ -367,6 +371,7 @@
 			<t>Length: 4 octets</t>
 			<t>Value: minimum interval, in micro-seconds, between two consecutive LSPs sent after the burst window has been used</t>
 			<t>The LSP Transmission Interval is an advertisement of the receiver's steady-state LSP reception rate.</t>
+
 		</section>
 		<section anchor="LPP" title="LSPs Per PSNP sub-TLV">
 			<t>The LSP per PSNP (LPP) sub-TLV advertises the number of received LSPs that triggers the immediate sending of a PSNP to acknowledge them.</t>
@@ -390,19 +395,42 @@
 					</artwork>
 				</figure>
 			</t>
-			<t>When the O flag is set, the LSP will be acknowledged in the order they are received: a PSNP acknowledging N LSPs is acknowledging the N oldest LSPs received. The order inside the PSNP is meaningless. If the sender keeps track of the order of LSPs sent, the ordering allows the fast detection of the loss of an LSP. This MUST NOT be used to trigger faster retransmission of an LSP. This MAY be used as an indication of a congestion event.</t>
+			<t>When the O flag is set, the LSP will be acknowledged in the order they are received: a PSNP acknowledging N LSPs is acknowledging the N oldest LSPs received. The order inside the PSNP is meaningless. If the sender keeps track of the order to LSP sent, this indication allows a fast detection of loss of LSP. This MUST NOT be used to trigger faster retransmission of LSP. This MAY be used to trigger a congestion signal.</t>
 		</section>
+
+
+      <section anchor="partialSNPI" title="Partial SNP Interval sub-TLV">
+        <t>The Partial SNP Interval sub-TLV advertises the amount of
+	time in milliseconds between periodic action for transmission of Partial
+        Sequence Number PDUs. This time will trigger the sending of a PSNP
+        even if the number of unacknowledged LSPs received on a given
+        interface does not exceed LPP (<xref target="LPP"/>). The time is
+	measured from the reception of the first unacknowldeged LSP.</t>
+
+        <t>Type: 5</t>
+
+        <t>Length: 2 octets</t>
+
+        <t>Value: partialSNPInterval in milliseconds</t>
+
+        <t>A node advertising this sub-TLV SHOULD send a PSNP at least once
+        per Partial SNP Interval if one or more unacknowledged LSPs have been
+        received on a given interface.</t>
+      </section>
+
 
 		<section anchor="TLVoperationLAN" title="Operation on a LAN interface">
 			<t>On a LAN interface, all LSPs are link-level multicasts. Each LSP sent will be received by all ISs on the LAN and each IS will receive LSPs from all transmitters. In this section, we clarify how the flooding parameters should be interpreted in the context of a LAN.</t>
 			<t>An LSP receiver on a LAN will communicate its desired flooding parameters using a single Flooding Parameters TLV, copies of which will be received by all transmitters. The flooding parameters sent by the LSP receiver MUST be understood as instructions from the receiver to each transmitter about the desired maximum transmit characteristics of each transmitter. The receiver is aware that there are multiple transmitters that can send LSPs to the receiver LAN interface. The receiver might want to take that into account by advertising more conservative values, e.g. a higher LSP Transmission Interval. When the transmitters receive the LSP Transmission Interval value advertised by a LSP receiver, the transmitters should rate limit LSPs according to the advertised flooding parameters. They should not apply any further interpretation to the flooding parameters advertised by the receiver.</t>
 			<t>A given LSP transmitter will receive multiple flooding parameter advertisements from different receivers that may carry different flooding parameter values. A given transmitter SHOULD use the most convervative value on a per parameter basis. For example, if the transmitter receives multiple LSP Burst Window values, it should use the smallest value.</t>
-			<t>In order for the LSP Burst Window to be a useful parameter, an LSP transmitter needs to be able to keep track of the number of un-acknowledged LSPs it has sent to a given LSP receiver. On a LAN there is no explicit acknowledgment of the receipt of LSPs between a given LSP transmitter and a given LSP receiver. However, an LSP transmitter on a LAN can infer whether any LSP receiver on the LAN has requested retransmission of LSPs from the DIS by monitoring PSNPs generated on the LAN. If no PSNPs have been generated on the LAN for a suitable period of time, then an LSP transmitter can safely set the number of un-acknowledged LSPs to zero. Since this suitable period of time is much higher than the fast acknowledgment of LSPs defined in <xref target="LSPACKRate"/>,
+			<t>In order for the LSP Burst Window to be a useful parameter, an LSP transmitter needs to be able to keep track of the number of un-acknowledged LSPs it has sent to a given LSP receiver. On a LAN there is no explicit acknowledgment of the receipt of LSPs between a given LSP transmitter and a given LSP receiver. However, an LSP transmitter on a LAN can infer whether any LSP receiver on the LAN has requested retransmission of LSPs from the DIS by monitoring PSNPs generated on the LAN. If no PSNPs have been generated on the LAN for a suitable period of time, then an LSP transmitter can safely set the number of un-acknowledged LSPs to zero. Since this suitable period of time is much higher than the fast acknowledgment of LSPs defined in <xref target="LSPACKRate"/>
+,
 		the sustainable transmission rate of LSPs will be much slower on a LAN interface than on a point to point interface. The LSP Burst Window is still very useful for the first burst of LSPs sent, especially in the case of a single node failure that requires the flooding of a relatively small number of LSPs.
 			</t>
 		</section>
 
 	</section>
+
 
 	<section anchor="Receiver" title="Performance improvement on the receiver">
 
@@ -432,6 +460,7 @@
         can be sent on an interface.</t>
 		</section>
 
+
 		<section anchor="PKTPRI" title="Packet Prioritization on Receive">
 			<t>There are three classes of PDUs sent by IS-IS:</t>
 
@@ -440,6 +469,7 @@
 					<t>Hellos</t>
 
 					<t>LSPs</t>
+
 
 					<t>Complete Sequence Number PDUs (CSNPs) and PSNPs</t>
 				</list>Implementations today may prioritize the reception of Hellos
@@ -511,6 +541,7 @@
 		    rwin never goes negative.
 				</t>
 
+
 				<section anchor="TLVoperationP2P" title="Operation on a point to point interface">
 
 					<t>By sending the LSP Burst Window sub-TLV, a node advertises to its neighbor its ability to receive that many un-acknowledged LSPs from the neighbor, with no separation interval. This is akin to a receive window or sliding window in flow control. In some implementations, this value should reflect the IS-IS socket buffer size. Special care must be taken to leave space for CSNP and PSNP (SNP) PDUs and IIHs if they share the same input queue. In this case, this document suggests advertising an LSP Burst Window corresponding to half the size of the IS-IS input queue. </t>
@@ -521,6 +552,7 @@
 
 					<t>If either the LSP transmitter or receiver does not adhere to these parameters, for example because of transient conditions, this causes no fatal condition to the operation of IS-IS. In the worst case, an LSP is lost at the receiver and this situation is already remedied by mechanisms in <xref target="ISO10589"/>
 . After a few seconds, neighbors will exchange PSNPs (for point to point interfaces) or CSNPs (for broadcast interfaces) and recover from the lost LSPs. This worst case should be avoided as those additional seconds impact convergence time as the LSDB is not fully synchronized. Hence it is better to err on the conservative side and to under-run the receiver rather than over-run it.</t>
+
 
 				</section>
 
@@ -658,6 +690,7 @@
 </section>
 <section anchor="IANA_Consideration" title="IANA Considerations">
 
+
 	<t>IANA is requested to allocate one TLV from the IS-IS TLV codepoint registry.</t>
 	<figure anchor="IANA_Registration" title=''>
 		<preamble></preamble>
@@ -685,11 +718,31 @@
 		<c>LSPs Per PSNP</c>
 		<c>4</c>
 		<c>Flags</c>
-		<c>5-255</c>
+		<c>5</c>
+		<c>Partial SNP Interval</c>
+		<c>6-255</c>
 		<c>Unassigned</c>
 	</texttable>
-</section>
-<section anchor="Security" title="Security Considerations" toc="default">
+      <t>This document also requests IANA to create a new registry for
+      assigning Flag bits advertised in the Flags sub-TLV.</t>
+
+      <t>Name: Flooding Parameters Flags Bits.</t>
+
+      <t>Registration Procedure:</t>
+
+      <t>Expert Review Expert(s): TBD</t>
+
+      <t><figure>
+          <artwork><![CDATA[+--------+------------------------+
+| Bit #  |  Description           |
++--------|------------------------+
+|  0     |  O Flag                |
++--------|------------------------+]]></artwork>
+        </figure></t>
+    </section>
+    <section anchor="Security" title="Security Considerations" toc="default">
+
+
 	<t>
     Security concerns for IS-IS are addressed in <xref target="ISO10589"/>
 ,
@@ -745,11 +798,35 @@
 <?rfc include="reference.RFC.0793"?>
 <?rfc include="reference.RFC.2973"?>
 <?rfc include="reference.RFC.5681"?>
+<?rfc include="reference.I-D.cardwell-iccrg-bbr-congestion-control"?>
+r
 </references>
 <section anchor="authors-notes" title="Changes / Author Notes">
 <t>[RFC Editor: Please remove this section before publication]</t>
 <t>00: Initial version.</t>
 
 </section>
+    <section anchor="open-issues" title="Issues for Further Discussion">
+      <t>[RFC Editor: Please remove this section before publication]</t>
+
+      <t>This section captures issues which the authors either have not yet
+      had time to address or on which the authors have not yet reached
+      consensus. Future revisions of this document may include new/altered
+      text relevant to these issues.</t>
+
+      <t>Issue 1: Placement of the discussion of LPP <xref target="LPP"/>may
+      become congestion control algorithm specific.</t>
+
+      <t>Issue 2: Further discussion of the relevance of the router
+      architecture to feasibility of different flow/congeston control
+      algorithms.</t>
+
+      <t>Issue 3: Discussion of LAN belongs in a separate section - not
+      bundled w the new TLV description.</t>
+
+      <t>Issue 4: Description of new TLV should not limit values advertised
+      to receive only.</t>
+
+    </section>
 </back>
 </rfc>
