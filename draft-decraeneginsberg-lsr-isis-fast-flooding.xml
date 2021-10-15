@@ -646,48 +646,96 @@
 		</section>
 	</section>
 	<section anchor="ControlExample2" title="Congestion Control algorithm: Example 2">
+	          <t>This section describes a congestion control algorithm based on
+        performance measured by the transmitter without dependance on
+        signaling from the receiver.</t>
 
-		<t>When flow control is necessary, it can be implemented in a
-        straightforward manner based on knowledge of the current flooding rate
-        and the current acknowledgement rate. Such an algorithm is a local
-        matter and there is no requirement or intent to standardize an
-        algorithm. There are a number of aspects which serve as guidelines
-        which can be described.</t>
+        <section anchor="Ex2-arch" title="Router Architecture Discussion">
+          <t>(The following description is an abstraction - implementation
+          details vary.)</t>
 
-		<t>A maximum target LSP transmission rate (LSPTxMax) SHOULD be
-        configurable. This represents the fastest LSP transmission rate which
-        will be attempted. This value SHOULD be applicable to all interfaces
-        and and SHOULD be consistent network wide.</t>
+          <t>Existing router architectures may utilize multiple input queues.
+          On a given line card, IS-IS PDUs from multiple interfaces may be
+          placed in a rate limited input queue. This queue may be dedicated to
+          IS-IS PDUs or may be shared with other routing related packets.</t>
 
-		<t>When the current rate of LSP transmission (LSPTxRate) exceeds the
-        capabilities of the receiver, the flow control algorithm needs to
-        aggressively reduce the LSPTxRate within a few seconds. Slower
-        responsiveness is likely to result in a large number of
-        retransmissions which can introduce much larger delays in
-        convergence.</t>
+          <t>The input queue may then pass IS-IS PDUs to a "punt queue" which
+          is used to pass PDUs from the data plane to the control plane. The
+          punt queue typically also has controls on its size and the rate at
+          which packets will be punted.</t>
 
-		<t>NOTE: Even with modest increases in flooding speed (for example, a
-        target LSPTxMax of 300 LSPs/second (10 times the typical rate
-        supported today)), a topology change triggering 2100 new LSPs would
-        only take 7 seconds to complete.</t>
+          <t>An input queue in the control plane may then be used to assemble
+          PDUs from multiple linecards, separate the IS-ISs PDU from other
+          types of packets, and place the IS-IS PDUs in an input queue
+          dedicated to the IS-IS protocol.</t>
 
-		<t>Dynamic adjustment of the rate of LSP transmission (LSPTxRate)
-        upwards (i.e., faster) SHOULD be done less aggressively and only be
-        done when the neighbor has demonstrated its ability to sustain the
-        current LSPTxRate.</t>
+          <t>The IS-IS input queue then separates the IS-IS PDUs and directs
+          them to an instance specific processing queue. The instance
+          specififc processing queue may then further separate the IS-IS PDUs
+          by type (IIHs, SNPs, and LSPs) so that separate processing threads
+          with varying priorities may be employed to process the incoming
+          PDUs.</t>
 
-		<t>The flow control algorithm MUST NOT assume the receive capabilities
-        of a neighbor are static, i.e., it MUST handle transient conditions
-        which result in a slower or faster receive rate on the part of a
-        neighbor.</t>
+          <t>In such an architecture, it may be difficult for IS-IS in the
+          control plane to accurately track the state of the various input
+          queues and determine what value should be advertised as a current
+          receive window.</t>
 
-		<t>The flow control algorithm needs to consider the expected delay
-        time in receiving an acknowledgment. See <xref target="LSPACKRate"/>
-.
-        This may vary per neighbor.</t>
+          <t>The following section describes a congestion control algorithm
+          based on performance measured by the transmitter without dependance
+          on signaling from the receiver.</t>
+        </section>
 
+        <section anchor="Ex2-tx" title="Transmitter Based Flow Control">
+          <t>The congestion control algorithm described in this section does
+          not depend upon direct signaling from the receiver. Instead it
+          adapts the tranmsmission rate based on measurement of the actual
+          rate of acknowledgments received.</t>
+
+          <t>When flow control is necessary, it can be implemented in a
+          straightforward manner based on knowledge of the current flooding
+          rate and the current acknowledgement rate. Such an algorithm is a
+          local matter and there is no requirement or intent to standardize an
+          algorithm. There are a number of aspects which serve as guidelines
+          which can be described. </t>
+
+          <t>A maximum target LSP transmission rate (LSPTxMax) SHOULD be
+          configurable. This represents the fastest LSP transmission rate
+          which will be attempted. This value SHOULD be applicable to all
+          interfaces and SHOULD be consistent network wide.</t>
+
+          <t>When the current rate of LSP transmission (LSPTxRate) exceeds the
+          capabilities of the receiver, the flow control algorithm needs to
+          aggressively reduce the LSPTxRate within a few seconds. Slower
+          responsiveness is likely to result in a large number of
+          retransmissions which can introduce much larger delays in
+          convergence.</t>
+
+          <t>NOTE: Even with modest increases in flooding speed (for example,
+          a target LSPTxMax of 300 LSPs/second (10 times the typical rate
+          supported today)), a topology change triggering 2100 new LSPs would
+          only take 7 seconds to complete.</t>
+
+          <t>Dynamic adjustment of the rate of LSP transmission (LSPTxRate)
+          upwards (i.e., faster) SHOULD be done less aggressively and only be
+          done when the neighbor has demonstrated its ability to sustain the
+          current LSPTxRate.</t>
+
+          <t>The flow control algorithm MUST NOT assume the receive
+          capabilities of a neighbor are static, i.e., it MUST handle
+          transient conditions which result in a slower or faster receive rate
+          on the part of a neighbor.</t>
+
+          <t>The flow control algorithm needs to consider the expected delay
+          time in receiving an acknowledgment. It therefore incorporates the
+          neighbor partialSNPInterval(<xref target="partialSNPI"/>) to help
+          determine whether acknowlegments are keeping pace with the rate of
+          LSPs transmitted. In the absence of an advertisement of
+          partialSNPInterval a locally configured value can be used.</t>
 	</section>
-</section>
+      </section>
+    </section>
+
 <section anchor="IANA_Consideration" title="IANA Considerations">
 
 
