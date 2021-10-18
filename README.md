@@ -8,6 +8,9 @@ Alternatively, you can fork this repository (which creates your own copy on Gith
 You should be able generate the text version of the most recent XML commit using this URL.
 http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/Bruno007/draft-lsr-isis-fast-flooding/master/draft-decraeneginsberg-lsr-isis-fast-flooding.xml&modeAsFormat=txt/ascii&type=ascii
 
+You should be able generate the html version of the most recent XML commit using this URL.
+http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/Bruno007/draft-lsr-isis-fast-flooding/master/draft-decraeneginsberg-lsr-isis-fast-flooding.xml&modeAsFormat=html/ascii&type=toframe
+
 And this should produce a diff between the most recently published ietf draft, and the latest version in the repository.
 //TBD (once we'll have a public ietf draft...)
 https://tools.ietf.org/rfcdiff?url1=draft-ietf-rtgwg-backoff-algo&url2=https://tinyurl.com/jkkq3ed
