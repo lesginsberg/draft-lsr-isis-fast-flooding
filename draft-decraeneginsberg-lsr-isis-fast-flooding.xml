@@ -222,11 +222,12 @@
 	</section>
 
 	<section anchor="Language" title="Requirements Language">
-		<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14
-			<xref target="RFC2119">RFC 2119</xref>
-			<xref target="RFC8174">RFC 8174</xref>
-					when, and only when, they appear in all capitals, as shown here.
-		</t>
+          <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+          NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+          "MAY", and "OPTIONAL" in this document are to be interpreted as
+          described in BCP 14 <xref target="RFC2119"/> <xref
+          target="RFC8174"/> when, and only when, they appear in all capitals,
+          as shown here .</t>
 	</section>
 
 	<section anchor="HISTORY" title="Historical Behavior">
@@ -846,8 +847,6 @@
 <?rfc include="reference.RFC.0793"?>
 <?rfc include="reference.RFC.2973"?>
 <?rfc include="reference.RFC.5681"?>
-<?rfc include="reference.I-D.cardwell-iccrg-bbr-congestion-control"?>
-r
 </references>
 <section anchor="authors-notes" title="Changes / Author Notes">
 <t>[RFC Editor: Please remove this section before publication]</t>
