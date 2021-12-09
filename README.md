@@ -13,7 +13,7 @@ You should be able generate the html version of the most recent XML commit using
 http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/Bruno007/draft-lsr-isis-fast-flooding/master/draft-ietf-lsr-isis-fast-flooding.xml&modeAsFormat=html/ascii&type=toframe
 
 And this should produce a diff between the most recently published ietf draft, and the latest version in the repository.
-https://tools.ietf.org/rfcdiff?url1=draft-ietf-lsr-isis-fast-flooding&url2=https://tinyurl.com/a7y9p7nf
+https://tools.ietf.org/rfcdiff?url1=draft-ietf-lsr-isis-fast-flooding&url2=https://tinyurl.com/mr2cszzj
 
 ## CANDIDATE Branch
 You should be able generate the text version of the most recent XML commit using this URL.
