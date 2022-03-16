@@ -10,7 +10,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="exp" docName="draft-ietf-lsr-isis-fast-flooding-00" ipr="trust200902">
+<rfc category="exp" docName="draft-ietf-lsr-isis-fast-flooding-01" ipr="trust200902">
 	<front>
 		<title abbrev="IS-IS Fast Flooding">IS-IS Fast Flooding</title>
 		<author fullname="Bruno Decraene" initials="B." surname="Decraene">
@@ -166,7 +166,7 @@
 
 
 
-		<date year="2021"/>
+		<date year="2022"/>
 		<abstract>
 		  <t>
 		    Current Link State Protocol Data Unit (PDU)
@@ -338,7 +338,7 @@
 		    related parameters and capabilities which may be
 		    of use to the peer in support of faster flooding.
 		</t>
-		<t>Type: TBD1</t>
+		<t>Type: 21</t>
 		<t>Length: variable, the size in octets of the Value field</t>
 
 		<t>Value: One or more sub-TLVs</t>
@@ -823,17 +823,17 @@
 <section anchor="IANA_Consideration" title="IANA Considerations">
 
 
-	<t>IANA is requested to allocate one TLV from the IS-IS TLV codepoint registry.</t>
+	<t>IANA has made the following temporary allocation from the IS-IS TLV codepoint registry.</t>
 	<figure anchor="IANA_Registration" title=''>
 		<preamble></preamble>
 		<artwork align="center">
    Type    Description                    IIH   LSP   SNP   Purge
    ----    ---------------------------    ---   ---   ---   ---
-   TBD1    Flooding Parameters TLV         y     n     y     n
+    21    Flooding Parameters TLV         y     n     y     n
 		</artwork>
 	</figure>
 	<t>This document creates the following sub-TLV Registry:</t>
-	<t>Name: Sub-TLVs for TLV TBD1 (Flooding Parameters TLV).</t>
+	<t>Name: Sub-TLVs for TLV 21 (Flooding Parameters TLV).</t>
 	<t>Registration Procedure(s): Expert Review</t>
 	<t>Expert(s): TBD</t>
 	<t>Reference: TBD</t>
@@ -935,6 +935,7 @@
 <t>[RFC Editor: Please remove this section before publication]</t>
 <t>IND 00: Initial version.</t>
 <t>WG 00: No change.</t>
+<t>WG 01: IANA allocated code point.</t>
 
 </section>
     <section anchor="open-issues" title="Issues for Further Discussion">
