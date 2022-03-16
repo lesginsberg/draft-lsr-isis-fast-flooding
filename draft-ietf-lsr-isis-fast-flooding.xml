@@ -42,15 +42,8 @@
 		</author>
 
 		<author fullname="Tony Li" initials="T." surname="Li">
-			<organization>Arista Networks</organization>
+			<organization>Juniper Networks, Inc.</organization>
 			<address>
-				<postal>
-					<street>5453 Great America Parkway</street>
-					<city>Santa Clara</city>
-					<region>California</region>
-					<code>95054</code>
-					<country>USA</country>
-				</postal>
 				<phone/>
 				<email>tony.li@tony.li</email>
 			</address>
