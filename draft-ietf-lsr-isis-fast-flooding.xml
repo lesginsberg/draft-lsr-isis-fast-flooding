@@ -473,7 +473,7 @@
 			  number of PSNPs sent but would delay the
 			  acknowledgements. Based on experimental
 			  evidence, 15 unacknowledged LSPs is a good
-			  value assuming that the LSP Burst Window is
+			  value assuming that the Receive Window is
 			  at least 30 and reasonably fast CPUs for
 			  both the transmitter and receiver. More
 			  frequent PSNPs gives the transmitter more

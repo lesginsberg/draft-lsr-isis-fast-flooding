@@ -1,0 +1,27 @@
+diff --git a/draft-ietf-lsr-isis-fast-flooding.xml b/draft-ietf-lsr-isis-fast-flooding.xml
+index 34459b7..fcb7868 100644
+--- a/draft-ietf-lsr-isis-fast-flooding.xml
++++ b/draft-ietf-lsr-isis-fast-flooding.xml
+@@ -398,12 +398,7 @@
+ 			retransmission of LSP. This MAY be used to
+ 			trigger a congestion signal.</t>
+ 		</section>
+-		<section anchor="RWIN" title="Receive Window sub-TLV">
+-			<t>The Receive Window (RWIN) sub-TLV advertises the maximum number of unacknowledged LSPs that the node can receive.</t>
+-			<t>Type: 5</t>
+-			<t>Length: 2 octets</t>
+-			<t>Value: maximum number of unacknowledged LSPs</t>			
+-		</section>
++
+ 
+       <section anchor="partialSNPI" title="Partial SNP Interval sub-TLV">
+         <t>The Partial SNP Interval sub-TLV advertises the amount of
+@@ -558,7 +553,7 @@
+ 		    transmit before waiting for an acknowledgment. The
+ 		    size of the receive window, in units of LSPs, is
+ 		    initialized with the value advertised by the
+-		    receiver in the Receive Window sub-TLV. If no
++		    receiver in the LSP Burst Window sub-TLV. If no
+ 		    value is advertised, the transmitter should
+ 		    initialize rwin with its own local value.
+ 				</t>
