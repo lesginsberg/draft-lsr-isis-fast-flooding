@@ -1,0 +1,45 @@
+{"errors":[],"idnits":"idnits 2.17.1 
+
+/draft-ietf-lsr-isis-fast-flooding.txt:
+
+  Checking boilerplate required by RFC 5378 and the IETF Trust (see
+  https://trustee.ietf.org/license-info):
+  ----------------------------------------------------------------------------
+
+     No issues found here.
+
+  Checking nits according to https://www.ietf.org/id-info/1id-guidelines.txt:
+  ----------------------------------------------------------------------------
+
+  == Mismatching filename: the document gives the document name as
+     'draft-ietf-lsr-isis-fast-flooding-01', but the file name used is
+     'draft-ietf-lsr-isis-fast-flooding'
+
+
+  Checking nits according to https://www.ietf.org/id-info/checklist :
+  ----------------------------------------------------------------------------
+
+     No issues found here.
+
+  Miscellaneous warnings:
+  ----------------------------------------------------------------------------
+
+  == Couldn't figure out when the document was first submitted -- there may
+     comments or warnings related to the use of a disclaimer for pre-RFC5378
+     work that could not be issued because of this.  Please check the Legal
+     Provisions document at https://trustee.ietf.org/license-info to determine
+     if you need the pre-RFC5378 disclaimer.
+
+
+  Checking references for intended status: Experimental
+  ----------------------------------------------------------------------------
+
+  -- No information found for draft-ietf-lsr-dynamic-flooding - is the name
+     correct?
+
+
+     Summary: 0 errors (**), 0 flaws (~~), 2 warnings (==), 1 comment (--).
+
+     Run idnits with the --verbose option for more detailed information about
+     the items above.
+","warnings":[]}

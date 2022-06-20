@@ -420,7 +420,7 @@
 
 		<section anchor="RWIN" title="Receive Window sub-TLV">
 			<t>The Receive Window (RWIN) sub-TLV advertises the maximum number of unacknowledged LSPs that the node can receive.</t>
-			<t>Type: 5</t>
+			<t>Type: 6</t>
 			<t>Length: 2 octets</t>
 			<t>Value: maximum number of unacknowledged LSPs</t>			
 		</section>
@@ -851,7 +851,9 @@
 		<c>Flags</c>
 		<c>5</c>
 		<c>Partial SNP Interval</c>
-		<c>6-255</c>
+		<c>6</c>
+		<c>Receive Window</c>
+		<c>7-255</c>
 		<c>Unassigned</c>
 	</texttable>
       <t>This document also requests IANA to create a new registry for
