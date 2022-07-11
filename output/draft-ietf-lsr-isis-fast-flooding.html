@@ -1,0 +1,4745 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {font-family: monospace}
+      td {
+        white-space: pre;
+        vertical-align: top;
+        font-size: 0.86em;
+      }
+      th {
+        text-align: center;
+      }
+      .left { background-color: #EEE; }
+      .right { background-color: #FFF; }
+      .lblock { background-color: #BFB; }
+      .rblock { background-color: #FF8; }
+      .delete { background-color: #ACF; }
+      .insert { background-color: #8FF; }
+      .change { background-color: gray; }
+      .header { background-color: orange; }
+      .w-delete {
+        color: #F00;
+        text-decoration: line-through;
+      }
+      .w-insert {
+        color: #008000;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <table cellspacing="0" cellpadding="0">
+      <tr>
+        <td>&nbsp;</td>
+        <th class="header">draft-ietf-lsr-isis-fast-flooding-00.txt</th>
+        <td>&nbsp;</td>
+        <th class="header">draft-ietf-lsr-isis-fast-flooding.txt</th>
+      </tr>
+      
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Network Working Group                                        B. Decraene
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Network Working Group                                        B. Decraene
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Internet-Draft                                                    Orange
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Internet-Draft                                                    Orange
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Intended status: Experimental                                L. Ginsberg
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Intended status: Experimental                                L. Ginsberg
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">Expires: <span class="delete">1</span>2<span class="delete"> Jun</span>e 2022<span class="delete">    </span>                                  Cisco Systems
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">Expires: 2<span class="insert">2 D</span>e<span class="insert">cember</span> 2022                                  Cisco Systems
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                                   T. Li
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                                   T. Li
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">                                                  <span class="delete">       A</span>r<span class="delete">ista</span> Networks
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">                                                  <span class="insert">Junipe</span>r Networks<span class="insert">, Inc.</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                             G. Solignac
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                             G. Solignac
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                                        
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                                        
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                              M. Karasek
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                              M. Karasek
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                           Cisco Systems
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                           Cisco Systems
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                               C. Bowers
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                               C. Bowers
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                  Juniper Networks, Inc.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                  Juniper Networks, Inc.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                         G. Van de Velde
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                         G. Van de Velde
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                                   Nokia
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                                   Nokia
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                               P. Psenak
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                               P. Psenak
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                           Cisco Systems
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                           Cisco Systems
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                           T. Przygienda
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                           T. Przygienda
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                                                 Juniper
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                                                 Juniper
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">                                                         <span class="delete">9 D</span>e<span class="delete">cember</span> 202<span class="delete">1</span>
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">                                                         <span class="insert">   20 Jun</span>e 202<span class="insert">2</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                          IS-IS Fast Flooding
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                          IS-IS Fast Flooding
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">                  draft-ietf-lsr-isis-fast-flooding-0<span class="delete">0</span>
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">                  draft-ietf-lsr-isis-fast-flooding-0<span class="insert">1</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Abstract
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Abstract
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Current Link State Protocol Data Unit (PDU) flooding rates are much
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Current Link State Protocol Data Unit (PDU) flooding rates are much
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   slower than what modern networks can support.  The use of IS-IS at
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   slower than what modern networks can support.  The use of IS-IS at
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   larger scale requires faster flooding rates to achieve desired
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   larger scale requires faster flooding rates to achieve desired
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   convergence goals.  This document discusses the need for faster
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   convergence goals.  This document discusses the need for faster
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   flooding, the issues around faster flooding, and some example
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   flooding, the issues around faster flooding, and some example
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-0">
+        <td></td>
+        <th class="change">
+          <a href="#context-0">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-0">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   time.  It is inappropriate to use Internet-Drafts as reference
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   time.  It is inappropriate to use Internet-Drafts as reference
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   material or to cite them other than as &quot;work in progress.&quot;
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   material or to cite them other than as &quot;work in progress.&quot;
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   This Internet-Draft will expire on <span class="delete">1</span>2<span class="delete"> Jun</span>e 2022.
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   This Internet-Draft will expire on 2<span class="insert">2 D</span>e<span class="insert">cember</span> 2022.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Copyright Notice
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Copyright Notice
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   Copyright (c) 202<span class="delete">1</span> IETF Trust and the persons identified as the
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   Copyright (c) 202<span class="insert">2</span> IETF Trust and the persons identified as the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   document authors.  All rights reserved.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   document authors.  All rights reserved.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This document is subject to BCP 78 and the IETF Trust&#x27;s Legal
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This document is subject to BCP 78 and the IETF Trust&#x27;s Legal
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   license-info) in effect on the date of publication of this document.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   license-info) in effect on the date of publication of this document.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Please review these documents carefully, as they describe your rights
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Please review these documents carefully, as they describe your rights
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   and restrictions with respect to this document.  Code Components
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   and restrictions with respect to this document.  Code Components
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   extracted from this document must include Revised BSD License text as
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   extracted from this document must include Revised BSD License text as
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-1">
+        <td></td>
+        <th class="change">
+          <a href="#context-1">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-1">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   2.  Requirements Language . . . . . . . . . . . . . . . . . . . .   3
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   2.  Requirements Language . . . . . . . . . . . . . . . . . . . .   3
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   3.  Historical Behavior . . . . . . . . . . . . . . . . . . . . .   4
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   3.  Historical Behavior . . . . . . . . . . . . . . . . . . . . .   4
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   4.  Flooding Parameters TLV . . . . . . . . . . . . . . . . . . .   5
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   4.  Flooding Parameters TLV . . . . . . . . . . . . . . . . . . .   5
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     4.1.  LSP Burst Window sub-TLV  . . . . . . . . . . . . . . . .   6
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     4.1.  LSP Burst Window sub-TLV  . . . . . . . . . . . . . . . .   6
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     4.2.  LSP Transmission Interval sub-TLV . . . . . . . . . . . .   6
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     4.2.  LSP Transmission Interval sub-TLV . . . . . . . . . . . .   6
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     4.3.  LSPs Per PSNP sub-TLV . . . . . . . . . . . . . . . . . .   6
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     4.3.  LSPs Per PSNP sub-TLV . . . . . . . . . . . . . . . . . .   6
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     4.4.  Flags sub-TLV . . . . . . . . . . . . . . . . . . . . . .   6
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     4.4.  Flags sub-TLV . . . . . . . . . . . . . . . . . . . . . .   6
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     4.5.  Partial SNP Interval sub-TLV  . . . . . . . . . . . . . .   7
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     4.5.  Partial SNP Interval sub-TLV  . . . . . . . . . . . . . .   7
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">     4.6.  Receive Window sub-TLV  . . . . . . . . . . . . . . . . .   7
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">     4.<span class="delete">6</span>.  Operation on a LAN interface  . . . . . . . . . . . . . .   <span class="delete">7</span>
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">     4.<span class="insert">7</span>.  Operation on a LAN interface  . . . . . . . . . . . . . .   <span class="insert">8</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   5.  Performance improvement on the receiver . . . . . . . . . . .   8
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   5.  Performance improvement on the receiver . . . . . . . . . . .   8
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     5.1.  Rate of LSP Acknowledgments . . . . . . . . . . . . . . .   8
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     5.1.  Rate of LSP Acknowledgments . . . . . . . . . . . . . . .   8
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     5.2.  Packet Prioritization on Receive  . . . . . . . . . . . .   9
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     5.2.  Packet Prioritization on Receive  . . . . . . . . . . . .   9
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   6.  Congestion and Flow Control . . . . . . . . . . . . . . . . .  10
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   6.  Congestion and Flow Control . . . . . . . . . . . . . . . . .  10
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     6.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .  10
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     6.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .  10
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">     6.2.  Congestion and Flow Control algorithm: Example 1  . . . .  1<span class="delete">0</span>
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">     6.2.  Congestion and Flow Control algorithm: Example 1  . . . .  1<span class="insert">1</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     6.3.  Congestion Control algorithm: Example 2 . . . . . . . . .  17
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     6.3.  Congestion Control algorithm: Example 2 . . . . . . . . .  17
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  20
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  20
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   9.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  21
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   9.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  21
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  21
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  21
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  21
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  21
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     11.1.  Normative References . . . . . . . . . . . . . . . . . .  21
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     11.1.  Normative References . . . . . . . . . . . . . . . . . .  21
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">     11.2.  Informative References . . . . . . . . . . . . . . . . .  22
+</td>
+        <td>&nbsp;</td>
+        <td class="right">     11.2.  Informative References . . . . . . . . . . . . . . . . .  22
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Appendix A.  Changes / Author Notes . . . . . . . . . . . . . . .  22
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Appendix A.  Changes / Author Notes . . . . . . . . . . . . . . .  22
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Appendix B.  Issues for Further Discussion  . . . . . . . . . . .  22
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Appendix B.  Issues for Further Discussion  . . . . . . . . . . .  22
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   Authors&#x27; Addresses  . . . . . . . . . . . . . . . . . . . . . . .  2<span class="delete">2</span>
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   Authors&#x27; Addresses  . . . . . . . . . . . . . . . . . . . . . . .  2<span class="insert">3</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-2">
+        <td></td>
+        <th class="change">
+          <a href="#context-2">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-2">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This document defines a new Type-Length-Value tuple (TLV) called the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This document defines a new Type-Length-Value tuple (TLV) called the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   &quot;Flooding Parameters TLV&quot; that may be included in IS to IS Hellos
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   &quot;Flooding Parameters TLV&quot; that may be included in IS to IS Hellos
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   (IIH) or Partial Sequence Number PDUs (PSNPs).  It allows IS-IS
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   (IIH) or Partial Sequence Number PDUs (PSNPs).  It allows IS-IS
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   implementations to advertise flooding related parameters and
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   implementations to advertise flooding related parameters and
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   capabilities which may be of use to the peer in support of faster
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   capabilities which may be of use to the peer in support of faster
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   flooding.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   flooding.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   Type: <span class="delete">TBD</span>1
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   Type: <span class="insert">2</span>1
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Length: variable, the size in octets of the Value field
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Length: variable, the size in octets of the Value field
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Value: One or more sub-TLVs
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Value: One or more sub-TLVs
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Several sub-TLVs are defined in this document.  The support of any
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Several sub-TLVs are defined in this document.  The support of any
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   sub-TLV is OPTIONAL.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   sub-TLV is OPTIONAL.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-3">
+        <td></td>
+        <th class="change">
+          <a href="#context-3">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-3">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Length: 2 octets
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Length: 2 octets
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Value: partialSNPInterval in milliseconds
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Value: partialSNPInterval in milliseconds
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   A node advertising this sub-TLV SHOULD send a PSNP at least once per
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   A node advertising this sub-TLV SHOULD send a PSNP at least once per
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Partial SNP Interval if one or more unacknowledged LSPs have been
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Partial SNP Interval if one or more unacknowledged LSPs have been
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   received on a given interface.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   received on a given interface.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">4.6.  Receive Window sub-TLV
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   The Receive Window (RWIN) sub-TLV advertises the maximum number of
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   unacknowledged LSPs that the node can receive.
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   Type: 6
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   Length: 2 octets
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   Value: maximum number of unacknowledged LSPs
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">4.<span class="delete">6</span>.  Operation on a LAN interface
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">4.<span class="insert">7</span>.  Operation on a LAN interface
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   On a LAN interface, all LSPs are link-level multicasts.  Each LSP
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   On a LAN interface, all LSPs are link-level multicasts.  Each LSP
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   sent will be received by all ISs on the LAN and each IS will receive
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   sent will be received by all ISs on the LAN and each IS will receive
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   LSPs from all transmitters.  In this section, we clarify how the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   LSPs from all transmitters.  In this section, we clarify how the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   flooding parameters should be interpreted in the context of a LAN.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   flooding parameters should be interpreted in the context of a LAN.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   An LSP receiver on a LAN will communicate its desired flooding
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   An LSP receiver on a LAN will communicate its desired flooding
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   parameters using a single Flooding Parameters TLV, copies of which
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   parameters using a single Flooding Parameters TLV, copies of which
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   will be received by all transmitters.  The flooding parameters sent
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   will be received by all transmitters.  The flooding parameters sent
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   by the LSP receiver MUST be understood as instructions from the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   by the LSP receiver MUST be understood as instructions from the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   receiver to each transmitter about the desired maximum transmit
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   receiver to each transmitter about the desired maximum transmit
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   characteristics of each transmitter.  The receiver is aware that
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   characteristics of each transmitter.  The receiver is aware that
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   there are multiple transmitters that can send LSPs to the receiver
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   there are multiple transmitters that can send LSPs to the receiver
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   LAN interface.  The receiver might want to take that into account by
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   LAN interface.  The receiver might want to take that into account by
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   advertising more conservative values, e.g. a higher LSP Transmission
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   advertising more conservative values, e.g. a higher LSP Transmission
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Interval.  When the transmitters receive the LSP Transmission
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Interval.  When the transmitters receive the LSP Transmission
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Interval value advertised by a LSP receiver, the transmitters should
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Interval value advertised by a LSP receiver, the transmitters should
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   rate limit LSPs according to the advertised flooding parameters.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   rate limit LSPs according to the advertised flooding parameters.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-4">
+        <td></td>
+        <th class="change">
+          <a href="#context-4">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-4">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   On point-to-point networks, PSNP PDUs provide acknowledgments for
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   On point-to-point networks, PSNP PDUs provide acknowledgments for
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   received LSPs.  [ISO10589] suggests that some delay be used when
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   received LSPs.  [ISO10589] suggests that some delay be used when
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   sending PSNPs.  This provides some optimization as multiple LSPs can
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   sending PSNPs.  This provides some optimization as multiple LSPs can
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   be acknowledged in a single PSNP.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   be acknowledged in a single PSNP.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Faster LSP flooding benefits from a faster feedback loop.  This
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Faster LSP flooding benefits from a faster feedback loop.  This
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   requires a reduction in the delay in sending PSNPs.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   requires a reduction in the delay in sending PSNPs.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The receiver SHOULD reduce its partialSNPInterval.  The choice of
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The receiver SHOULD reduce its partialSNPInterval.  The choice of
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   this lower value is a local choice.  It may depend on the available
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   this lower value is a local choice.  It may depend on the available
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   processing power of the node, the number of adjacencies, and the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   processing power of the node, the number of adjacencies, and the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   requirement to synchronize the LSDB more quickly. 200 ms seems to be
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   requirement to synchronize the LSDB more quickly. 200 ms seems to be
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   a reasonable value.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   a reasonable value.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   In addition to the timer based partialSNPInterval, the receiver
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   In addition to the timer based partialSNPInterval, the receiver
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   SHOULD keep track of the number of unacknowledged LSPs per circuit
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   SHOULD keep track of the number of unacknowledged LSPs per circuit
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   and level.  When this number exceeds a preset threshold of LSPs Per
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   and level.  When this number exceeds a preset threshold of LSPs Per
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   PSNP (LPP), the receiver SHOULD immediately send a PSNP without
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   PSNP (LPP), the receiver SHOULD immediately send a PSNP without
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   waiting for the PSNP timer to expire.  In case of a burst of LSPs,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   waiting for the PSNP timer to expire.  In case of a burst of LSPs,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   this allows for more frequent PSNPs, giving faster feedback to the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   this allows for more frequent PSNPs, giving faster feedback to the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   sender.  Outside of the burst case, the usual time-based PSNP
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   sender.  Outside of the burst case, the usual time-based PSNP
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   approach comes into effect.  The LPP SHOULD also be less than or
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   approach comes into effect.  The LPP SHOULD also be less than or
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   equal to 90 as this is the maximum number of LSPs that can be
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   equal to 90 as this is the maximum number of LSPs that can be
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   acknowledged in a PSNP at common MTU sizes, hence waiting longer
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   acknowledged in a PSNP at common MTU sizes, hence waiting longer
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   would not reduce the number of PSNPs sent but would delay the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   would not reduce the number of PSNPs sent but would delay the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   acknowledgements.  Based on experimental evidence, 15 unacknowledged
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   acknowledgements.  Based on experimental evidence, 15 unacknowledged
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   LSPs is a good value assuming that the <span class="delete">LSP Burst</span> Window is at least
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   LSPs is a good value assuming that the <span class="insert">Receive</span> Window is at least<span class="insert"> 30</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">  <span class="delete"> 30</span> and reasonably fast CPUs for both the transmitter and receiver.
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   and reasonably fast CPUs for both the transmitter and receiver.<span class="insert">  More</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">  <span class="delete"> More</span> frequent PSNPs gives the transmitter more feedback on receiver
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   frequent PSNPs gives the transmitter more feedback on receiver
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   progress, allowing the transmitter to continue transmitting while not
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   progress, allowing the transmitter to continue transmitting while not
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   burdening the receiver with undue overhead.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   burdening the receiver with undue overhead.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   By deploying both the time-based and the threshold-based PSNP
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   By deploying both the time-based and the threshold-based PSNP
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   approaches, the receiver can be adaptive to both LSP bursts and
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   approaches, the receiver can be adaptive to both LSP bursts and
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   infrequent LSP updates.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   infrequent LSP updates.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   As PSNPs also consume link bandwidth, packet queue space, and
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   As PSNPs also consume link bandwidth, packet queue space, and
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-5">
+        <td></td>
+        <th class="change">
+          <a href="#context-5">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-5">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   *  LSPs
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   *  LSPs
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   *  Complete Sequence Number PDUs (CSNPs) and PSNPs
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   *  Complete Sequence Number PDUs (CSNPs) and PSNPs
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Implementations today may prioritize the reception of Hellos over
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Implementations today may prioritize the reception of Hellos over
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   LSPs and SNPs in order to prevent a burst of LSP updates from
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   LSPs and SNPs in order to prevent a burst of LSP updates from
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   triggering an adjacency timeout which in turn would require
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   triggering an adjacency timeout which in turn would require
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   additional LSPs to be updated.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   additional LSPs to be updated.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   CSNPs and PSNPs serve to trigger or acknowledge the transmission of
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   CSNPs and PSNPs serve to trigger or acknowledge the transmission of
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   specified LSPs.  On a point-to-point link, PSNPs acknowledge the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   specified LSPs.  On a point-to-point link, PSNPs acknowledge the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   receipt of one or more LSPs.  For this reason, [ISO10589] specifies a
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   receipt of one or more LSPs.  For this reason, [ISO10589] specifies a
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   delay (partialSNPInterval) before sending a PSNP so that the number
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   delay (partialSNPInterval) before sending a PSNP so that the number
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   of PSNPs required to be sent is reduced.  On receipt of a PSNP, the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   of PSNPs required to be sent is reduced.  On receipt of a PSNP, the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   set of LSPs acknowledged by that PSNP can be marked so that they do
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   set of LSPs acknowledged by that PSNP can be marked so that they do
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   not need to be retransmitted.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   not need to be retransmitted.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   If a PSNP is dropped on reception, the set of LSPs advertised in the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   If a PSNP is dropped on reception, the set of LSPs advertised in the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   PSNP cannot be marked as acknowledged and this results in needless
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   PSNP cannot be marked as acknowledged and this results in needless
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   retransmissions that will further delay transmission of other LSPs
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   retransmissions that will further delay transmission of other LSPs
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   that have yet to be transmitted.  It may also make it more likely
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   that have yet to be transmitted.  It may also make it more likely
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   that a receiver becomes overwhelmed by LSP transmissions.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   that a receiver becomes overwhelmed by LSP transmissions.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   It is therefore RECOMMENDED that implementations prioritize the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   It is therefore RECOMMENDED that implementations prioritize the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   receipt of Hellos and then SNPs over LSPs.  Implementations MAY also
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   receipt of Hellos and then SNPs over LSPs.  Implementations MAY also
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   prioritize IS-IS packets over other less critical protocols.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   prioritize IS-IS packets over other less critical protocols.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.  Congestion and Flow Control
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.  Congestion and Flow Control
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.1.  Overview
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.1.  Overview
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-6">
+        <td></td>
+        <th class="change">
+          <a href="#context-6">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-6">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   congestion.  These resources may be shared across multiple IS-IS
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   congestion.  These resources may be shared across multiple IS-IS
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   adjacencies for the system and it is the responsibility of congestion
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   adjacencies for the system and it is the responsibility of congestion
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   control to ensure that these are shared reasonably.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   control to ensure that these are shared reasonably.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Reliability provides loss detection and recovery.  IS-IS already has
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Reliability provides loss detection and recovery.  IS-IS already has
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   mechanisms to ensure the reliable transmission of LSPs.  This is not
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   mechanisms to ensure the reliable transmission of LSPs.  This is not
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   changed by this document.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   changed by this document.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The following two sections provides examples of Flow and/or
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The following two sections provides examples of Flow and/or
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Congestion control algorithms as examples that may be implemented by
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Congestion control algorithms as examples that may be implemented by
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   taking advantage of the extensions defined in this document.  They
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   taking advantage of the extensions defined in this document.  They
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   are non-normative.  An implementation may implement any congestion
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   are non-normative.  An implementation may implement any congestion
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   control algorithm.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   control algorithm.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.2.  Congestion and Flow Control algorithm: Example 1
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.2.  Congestion and Flow Control algorithm: Example 1
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.2.1.  Flow control
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.2.1.  Flow control
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   A flow control mechanism creates a control loop between a single
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   A flow control mechanism creates a control loop between a single
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   instance of a transmitter and a single receiver.  This example uses a
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   instance of a transmitter and a single receiver.  This example uses a
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   mechanism similar to the TCP receive window to allow the receiver to
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   mechanism similar to the TCP receive window to allow the receiver to
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   govern the amount of data sent by the sender.  This receive window
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   govern the amount of data sent by the sender.  This receive window
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   (&#x27;rwin&#x27;) indicates an allowed number of LSPs that the sender may
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   (&#x27;rwin&#x27;) indicates an allowed number of LSPs that the sender may
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   transmit before waiting for an acknowledgment.  The size of the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   transmit before waiting for an acknowledgment.  The size of the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   receive window, in units of LSPs, is initialized with the value
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   receive window, in units of LSPs, is initialized with the value
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   advertised by the receiver in the <span class="delete">LSP Burst</span> Window sub-TLV.  If no
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   advertised by the receiver in the <span class="insert">Receive</span> Window sub-TLV.  If no
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   value is advertised, the transmitter should initialize rwin with its
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   value is advertised, the transmitter should initialize rwin with its
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   own local value.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   own local value.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   When the transmitter sends a set of LSPs to the receiver, it
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   When the transmitter sends a set of LSPs to the receiver, it
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   subtracts the number of LSPs sent from rwin.  If the transmitter
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   subtracts the number of LSPs sent from rwin.  If the transmitter
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   receives a PSNP, then rwin is incremented for each acknowledged LSP.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   receives a PSNP, then rwin is incremented for each acknowledged LSP.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The transmitter must ensure that the value of rwin never goes
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The transmitter must ensure that the value of rwin never goes
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   negative.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   negative.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-7">
+        <td></td>
+        <th class="change">
+          <a href="#context-7">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-7">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   advertised value, outside of LSP bursts.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   advertised value, outside of LSP bursts.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The LSP transmitter MUST NOT exceed these parameters.  After having
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The LSP transmitter MUST NOT exceed these parameters.  After having
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   sent a full burst of un-acknowledged LSPs, it MUST send the following
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   sent a full burst of un-acknowledged LSPs, it MUST send the following
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   LSPs with an LSP Transmission Interval between LSP arrivals.  For CPU
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   LSPs with an LSP Transmission Interval between LSP arrivals.  For CPU
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   scheduling reasons, this rate may be averaged over a small period
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   scheduling reasons, this rate may be averaged over a small period
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   e.g. 10 to 30ms.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   e.g. 10 to 30ms.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   If either the LSP transmitter or receiver does not adhere to these
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   If either the LSP transmitter or receiver does not adhere to these
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   parameters, for example because of transient conditions, this causes
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   parameters, for example because of transient conditions, this causes
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   no fatal condition to the operation of IS-IS.  In the worst case, an
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   no fatal condition to the operation of IS-IS.  In the worst case, an
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   LSP is lost at the receiver and this situation is already remedied by
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   LSP is lost at the receiver and this situation is already remedied by
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   mechanisms in [ISO10589] . After a few seconds, neighbors will
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   mechanisms in [ISO10589] . After a few seconds, neighbors will
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   exchange PSNPs (for point to point interfaces) or CSNPs (for
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   exchange PSNPs (for point to point interfaces) or CSNPs (for
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   broadcast interfaces) and recover from the lost LSPs.  This worst
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   broadcast interfaces) and recover from the lost LSPs.  This worst
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   case should be avoided as those additional seconds impact convergence
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   case should be avoided as those additional seconds impact convergence
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   time as the LSDB is not fully synchronized.  Hence it is better to
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   time as the LSDB is not fully synchronized.  Hence it is better to
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   err on the conservative side and to under-run the receiver rather
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   err on the conservative side and to under-run the receiver rather
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   than over-run it.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   than over-run it.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.2.1.2.  Operation on a broadcast LAN interface
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.2.1.2.  Operation on a broadcast LAN interface
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   In order for the LSP Burst Window to be a useful parameter, an LSP
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   In order for the LSP Burst Window to be a useful parameter, an LSP
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-8">
+        <td></td>
+        <th class="change">
+          <a href="#context-8">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-8">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This section describes one congestion control algorithm largely
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This section describes one congestion control algorithm largely
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   inspired by the TCP congestion control algorithm RFC 5681 [RFC5681].
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   inspired by the TCP congestion control algorithm RFC 5681 [RFC5681].
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The proposed algorithm uses a variable congestion window &#x27;cwin&#x27;.  It
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The proposed algorithm uses a variable congestion window &#x27;cwin&#x27;.  It
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   plays a role similar to the receive window described above.  The main
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   plays a role similar to the receive window described above.  The main
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   difference is that cwin is dynamically changed according to various
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   difference is that cwin is dynamically changed according to various
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   events described below.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   events described below.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.2.2.1.  Core algorithm
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.2.2.1.  Core algorithm
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   In its simplest form, the congestion control algorithm looks like the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   In its simplest form, the congestion control algorithm looks like the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   following:
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   following:
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      +---------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      +---------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      |               |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      |               |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      |               v
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      |               v
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      |   +----------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      |   +----------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      |   | Congestion avoidance |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      |   | Congestion avoidance |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      |   + ---------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      |   + ---------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">      |               |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">      |               |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-9">
+        <td></td>
+        <th class="change">
+          <a href="#context-9">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-9">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   keep a very low sending rate even without actual congestion on the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   keep a very low sending rate even without actual congestion on the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   path.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   path.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Two practical signals are given hereafter.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Two practical signals are given hereafter.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Timers: when receiving acknowledgements, a sender estimates the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Timers: when receiving acknowledgements, a sender estimates the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   acknowledgement time of the receiver.  Based on this estimation, it
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   acknowledgement time of the receiver.  Based on this estimation, it
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   can infer that a packet was lost, and infer congestion on the path.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   can infer that a packet was lost, and infer congestion on the path.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-10">
+        <td></td>
+        <th class="change">
+          <a href="#context-10">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-10">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.2.4.  Operation considerations
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.2.4.  Operation considerations
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   As discussed in Section 4.<span class="delete">6</span>, the solution is more effective on point
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   As discussed in Section 4.<span class="insert">7</span>, the solution is more effective on point
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   to point adjacencies.  Hence a broadcast interface (e.g.  Ethernet)
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   to point adjacencies.  Hence a broadcast interface (e.g.  Ethernet)
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   only shared by two IS-IS neighbhors should be configured as point to
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   only shared by two IS-IS neighbhors should be configured as point to
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   point in order to have a more effective flooding.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   point in order to have a more effective flooding.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">6.3.  Congestion Control algorithm: Example 2
+</td>
+        <td>&nbsp;</td>
+        <td class="right">6.3.  Congestion Control algorithm: Example 2
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This section describes a congestion control algorithm based on
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This section describes a congestion control algorithm based on
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   performance measured by the transmitter without dependance on
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   performance measured by the transmitter without dependance on
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-11">
+        <td></td>
+        <th class="change">
+          <a href="#context-11">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-11">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">7.  IANA Considerations
+</td>
+        <td>&nbsp;</td>
+        <td class="right">7.  IANA Considerations
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   IANA is requested to allocate one TLV from the IS-IS TLV codepoint
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   IANA has made the following temporary allocation from the IS-IS TLV
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   registry.
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   codepoint registry.
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">        Type    Description                    IIH   LSP   SNP   Purge
+</td>
+        <td>&nbsp;</td>
+        <td class="right">        Type    Description                    IIH   LSP   SNP   Purge
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">        ----    ---------------------------    ---   ---   ---   ---
+</td>
+        <td>&nbsp;</td>
+        <td class="right">        ----    ---------------------------    ---   ---   ---   ---
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">        <span class="delete">TBD</span>1    Flooding Parameters TLV         y     n     y     n
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">        <span class="insert"> 2</span>1    Flooding Parameters TLV         y     n     y     n
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                                  Figure 3
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                                  Figure 3
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This document creates the following sub-TLV Registry:
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This document creates the following sub-TLV Registry:
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   Name: Sub-TLVs for TLV <span class="delete">TBD</span>1 (Flooding Parameters TLV).
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   Name: Sub-TLVs for TLV <span class="insert">2</span>1 (Flooding Parameters TLV).
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Registration Procedure(s): Expert Review
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Registration Procedure(s): Expert Review
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Expert(s): TBD
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Expert(s): TBD
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Reference: TBD
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Reference: TBD
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   +=======+===========================+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   +=======+===========================+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-12">
+        <td></td>
+        <th class="change">
+          <a href="#context-12">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-12">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   |   2   | LSP Transmission Interval |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   |   2   | LSP Transmission Interval |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   +-------+---------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   +-------+---------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   |   3   | LSPs Per PSNP             |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   |   3   | LSPs Per PSNP             |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   +-------+---------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   +-------+---------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   |   4   | Flags                     |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   |   4   | Flags                     |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   +-------+---------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   +-------+---------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   |   5   | Partial SNP Interval      |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   |   5   | Partial SNP Interval      |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   +-------+---------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   +-------+---------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">                   |   6   | Receive Window            |
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">                   +-------+---------------------------+
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">                   | <span class="delete">6</span>-255 | Unassigned                |
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">                   | <span class="insert">7</span>-255 | Unassigned                |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                   +-------+---------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                   +-------+---------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">                        Table 1: Initial allocations
+</td>
+        <td>&nbsp;</td>
+        <td class="right">                        Table 1: Initial allocations
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This document also requests IANA to create a new registry for
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This document also requests IANA to create a new registry for
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   assigning Flag bits advertised in the Flags sub-TLV.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   assigning Flag bits advertised in the Flags sub-TLV.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Name: Flooding Parameters Flags Bits.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Name: Flooding Parameters Flags Bits.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Registration Procedure:
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Registration Procedure:
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Expert Review Expert(s): TBD
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Expert Review Expert(s): TBD
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   +--------+------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   +--------+------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   | Bit #  |  Description           |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   | Bit #  |  Description           |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   +--------|------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   +--------|------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   |  0     |  O Flag                |
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   |  0     |  O Flag                |
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   +--------|------------------------+
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   +--------|------------------------+
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-13">
+        <td></td>
+        <th class="change">
+          <a href="#context-13">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-13">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This TLV advertisement is not flooded across the network but only
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This TLV advertisement is not flooded across the network but only
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   sent between adjacent IS-IS neighbors.  This would limit the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   sent between adjacent IS-IS neighbors.  This would limit the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   consequences in case of forged messages, and also limits the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   consequences in case of forged messages, and also limits the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   dissemination of such information.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   dissemination of such information.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">9.  Contributors
+</td>
+        <td>&nbsp;</td>
+        <td class="right">9.  Contributors
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The following people gave a substantial contribution to the content
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The following people gave a substantial contribution to the content
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   of this document and should be considered as coauthors:
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   of this document and should be considered as coauthors:
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-14">
+        <td></td>
+        <th class="change">
+          <a href="#context-14">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-14">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   The authors would like to thank David Jacquet, Sarah Chen, and
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   The authors would like to thank David Jacquet, Sarah Chen, and
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Qiangzhou Gao for the tests performed on commercial implementations
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Qiangzhou Gao for the tests performed on commercial implementations
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   and their identification of some limiting factors.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   and their identification of some limiting factors.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">11.  References
+</td>
+        <td>&nbsp;</td>
+        <td class="right">11.  References
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">11.1.  Normative References
+</td>
+        <td>&nbsp;</td>
+        <td class="right">11.1.  Normative References
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   [ISO10589] International Organization for Standardization,
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">   <span class="delete">          </span> &quot;Intermediate system to Intermediate system intra-<span class="delete">domain</span>
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   <span class="insert">[ISO10589] ISO,</span> &quot;Intermediate system to Intermediate system intra-
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">              routeing information exchange protocol for use in
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">             <span class="insert"> domain</span> routeing information exchange protocol for use in
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              conjunction with the protocol for providing the
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              conjunction with the protocol for providing the
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              connectionless-mode Network Service (ISO 8473)&quot;, ISO/
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              connectionless-mode Network Service (ISO 8473)&quot;, ISO/
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              IEC 10589:2002, Second Edition, November 2002.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              IEC 10589:2002, Second Edition, November 2002.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC2119]  Bradner, S., &quot;Key words for use in RFCs to Indicate
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC2119]  Bradner, S., &quot;Key words for use in RFCs to Indicate
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              Requirement Levels&quot;, BCP 14, RFC 2119,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              Requirement Levels&quot;, BCP 14, RFC 2119,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              DOI 10.17487/RFC2119, March 1997,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              DOI 10.17487/RFC2119, March 1997,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              &lt;https://www.rfc-editor.org/info/rfc2119&gt;.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              &lt;https://www.rfc-editor.org/info/rfc2119&gt;.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-15">
+        <td></td>
+        <th class="change">
+          <a href="#context-15">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-15">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC6298]  Paxson, V., Allman, M., Chu, J., and M. Sargent,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC6298]  Paxson, V., Allman, M., Chu, J., and M. Sargent,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              &quot;Computing TCP&#x27;s Retransmission Timer&quot;, RFC 6298,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              &quot;Computing TCP&#x27;s Retransmission Timer&quot;, RFC 6298,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              DOI 10.17487/RFC6298, June 2011,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              DOI 10.17487/RFC6298, June 2011,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              &lt;https://www.rfc-editor.org/info/rfc6298&gt;.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              &lt;https://www.rfc-editor.org/info/rfc6298&gt;.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC8174]  Leiba, B., &quot;Ambiguity of Uppercase vs Lowercase in RFC
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC8174]  Leiba, B., &quot;Ambiguity of Uppercase vs Lowercase in RFC
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              2119 Key Words&quot;, BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              2119 Key Words&quot;, BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              May 2017, &lt;https://www.rfc-editor.org/info/rfc8174&gt;.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              May 2017, &lt;https://www.rfc-editor.org/info/rfc8174&gt;.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">11.2.  Informative References
+</td>
+        <td>&nbsp;</td>
+        <td class="right">11.2.  Informative References
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [I-D.ietf-lsr-dynamic-flooding]
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [I-D.ietf-lsr-dynamic-flooding]
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              Li, T., Przygienda, T., Psenak, P., Ginsberg, L., Chen,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              Li, T., Przygienda, T., Psenak, P., Ginsberg, L., Chen,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              H., Cooper, D., Jalil, L., Dontula, S., and G. S. Mishra,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              H., Cooper, D., Jalil, L., Dontula, S., and G. S. Mishra,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              &quot;Dynamic Flooding on Dense Graphs&quot;, Work in Progress,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              &quot;Dynamic Flooding on Dense Graphs&quot;, Work in Progress,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">              Internet-Draft, draft-ietf-lsr-dynamic-flooding-1<span class="delete">0</span>, 7
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">              Internet-Draft, draft-ietf-lsr-dynamic-flooding-1<span class="insert">1</span>, 7<span class="insert"> June</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">             <span class="delete"> December</span> 202<span class="delete">1</span>, &lt;https://www.ietf.org/archive/id/draft-
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">              202<span class="insert">2</span>, &lt;https://www.ietf.org/archive/id/draft-<span class="insert">ietf-lsr-</span>
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">              <span class="delete">ietf-lsr-</span>dynamic-flooding-1<span class="delete">0</span>.txt&gt;.
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">              dynamic-flooding-1<span class="insert">1</span>.txt&gt;.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC0793]  Postel, J., &quot;Transmission Control Protocol&quot;, STD 7,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC0793]  Postel, J., &quot;Transmission Control Protocol&quot;, STD 7,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              RFC 793, DOI 10.17487/RFC0793, September 1981,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              RFC 793, DOI 10.17487/RFC0793, September 1981,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              &lt;https://www.rfc-editor.org/info/rfc793&gt;.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              &lt;https://www.rfc-editor.org/info/rfc793&gt;.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC2973]  Balay, R., Katz, D., and J. Parker, &quot;IS-IS Mesh Groups&quot;,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC2973]  Balay, R., Katz, D., and J. Parker, &quot;IS-IS Mesh Groups&quot;,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              RFC 2973, DOI 10.17487/RFC2973, October 2000,
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              RFC 2973, DOI 10.17487/RFC2973, October 2000,
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">              &lt;https://www.rfc-editor.org/info/rfc2973&gt;.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">              &lt;https://www.rfc-editor.org/info/rfc2973&gt;.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-16">
+        <td></td>
+        <th class="change">
+          <a href="#context-16">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-16">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Appendix A.  Changes / Author Notes
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Appendix A.  Changes / Author Notes
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC Editor: Please remove this section before publication]
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC Editor: Please remove this section before publication]
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   IND 00: Initial version.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   IND 00: Initial version.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   WG 00: No change.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   WG 00: No change.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   WG 01: IANA allocated code point.
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Appendix B.  Issues for Further Discussion
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Appendix B.  Issues for Further Discussion
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   [RFC Editor: Please remove this section before publication]
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   [RFC Editor: Please remove this section before publication]
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   This section captures issues which the authors either have not yet
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   This section captures issues which the authors either have not yet
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   had time to address or on which the authors have not yet reached
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   had time to address or on which the authors have not yet reached
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   consensus.  Future revisions of this document may include new/altered
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   consensus.  Future revisions of this document may include new/altered
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   text relevant to these issues.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   text relevant to these issues.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   There are no open issues at this time.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   There are no open issues at this time.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">Authors&#x27; Addresses
+</td>
+        <td>&nbsp;</td>
+        <td class="right">Authors&#x27; Addresses
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Bruno Decraene
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Bruno Decraene
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Orange
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Orange
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: bruno.decraene@orange.com
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: bruno.decraene@orange.com
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Les Ginsberg
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Les Ginsberg
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Cisco Systems
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Cisco Systems
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   821 Alder Drive
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   821 Alder Drive
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Milpitas, CA 95035
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Milpitas, CA 95035
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   United States of America
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   United States of America
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: ginsberg@cisco.com
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: ginsberg@cisco.com
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Tony Li
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Tony Li
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   Arista Networks
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   Juniper Networks, Inc.
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   5453 Great America Parkway
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   Santa Clara, California 95054
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"><span class="delete">   United States of America
+</span></td>
+        <td>&nbsp;</td>
+        <td class="rblock"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: tony.li@tony.li
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: tony.li@tony.li
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Guillaume Solignac
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Guillaume Solignac
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: gsoligna@protonmail.com
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: gsoligna@protonmail.com
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Marek Karasek
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Marek Karasek
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Cisco Systems
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Cisco Systems
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Pujmanove 1753/10a, Prague 4 - Nusle
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Pujmanove 1753/10a, Prague 4 - Nusle
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   10 14000 Prague
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   10 14000 Prague
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Czech Republic
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Czech Republic
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: mkarasek@cisco.com
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: mkarasek@cisco.com
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Chris Bowers
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Chris Bowers
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Juniper Networks, Inc.
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Juniper Networks, Inc.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   1194 N. Mathilda Avenue
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   1194 N. Mathilda Avenue
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Sunnyvale, CA 94089
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Sunnyvale, CA 94089
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   United States of America
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   United States of America
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: cbowers@juniper.net
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: cbowers@juniper.net
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Gunter Van de Velde
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Gunter Van de Velde
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Nokia
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Nokia
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Copernicuslaan 50
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Copernicuslaan 50
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   2018 Antwerp
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   2018 Antwerp
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Belgium
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Belgium
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: gunter.van_de_velde@nokia.com
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: gunter.van_de_velde@nokia.com
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Peter Psenak
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Peter Psenak
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Cisco Systems
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Cisco Systems
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Apollo Business Center Mlynske nivy 43
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Apollo Business Center Mlynske nivy 43
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   821 09 Bratislava
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   821 09 Bratislava
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Slovakia
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Slovakia
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: ppsenak@cisco.com
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: ppsenak@cisco.com
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Tony Przygienda
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Tony Przygienda
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Juniper
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Juniper
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   1137 Innovation Way
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   1137 Innovation Way
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Sunnyvale, Ca
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Sunnyvale, Ca
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   United States of America
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   United States of America
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">   Email: prz@juniper.net
+</td>
+        <td>&nbsp;</td>
+        <td class="right">   Email: prz@juniper.net
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="right">&nbsp;</td>
+      </tr>
+      <tr id="context-17">
+        <td></td>
+        <th class="change">
+          <a href="#context-17">
+           <small>Skipping</small>
+          </a>
+        </th>
+        <td></td>
+        <th class="change">
+          <a href="#context-17">
+           <small>Skipping</small>
+          </a>
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+    </table>
+  </body>
+</html>

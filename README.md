@@ -22,5 +22,5 @@ Draft TEXT: http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.gi
 Draft HTML: http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/Bruno007/draft-lsr-isis-fast-flooding/candidate/draft-ietf-lsr-isis-fast-flooding.xml&modeAsFormat=html/ascii&type=toframe
 * You should be able generate the html version of the most recent XML commit using this URL.
 
-Draft DIFF: https://tools.ietf.org/rfcdiff?url1=draft-ietf-lsr-isis-fast-flooding&url2=https://tinyurl.com/5dcfkrr9
+Draft DIFF: https://tools.ietf.org/rfcdiff?url1=draft-ietf-lsr-isis-fast-flooding&url2=https://tinyurl.com/k32nmzdn
 * This should produce a diff between the most recently published ietf draft, and the latest version in the repository.

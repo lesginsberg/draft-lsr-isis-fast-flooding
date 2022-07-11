@@ -399,7 +399,6 @@
 			trigger a congestion signal.</t>
 		</section>
 
-
       <section anchor="partialSNPI" title="Partial SNP Interval sub-TLV">
         <t>The Partial SNP Interval sub-TLV advertises the amount of
 	time in milliseconds between periodic action for transmission of Partial
@@ -418,6 +417,13 @@
         per Partial SNP Interval if one or more unacknowledged LSPs have been
         received on a given interface.</t>
       </section>
+
+		<section anchor="RWIN" title="Receive Window sub-TLV">
+			<t>The Receive Window (RWIN) sub-TLV advertises the maximum number of unacknowledged LSPs that the node can receive.</t>
+			<t>Type: 6</t>
+			<t>Length: 2 octets</t>
+			<t>Value: maximum number of unacknowledged LSPs</t>			
+		</section>
 
 
 		<section anchor="TLVoperationLAN" title="Operation on a LAN interface">
@@ -468,7 +474,7 @@
 			  number of PSNPs sent but would delay the
 			  acknowledgements. Based on experimental
 			  evidence, 15 unacknowledged LSPs is a good
-			  value assuming that the LSP Burst Window is
+			  value assuming that the Receive Window is
 			  at least 30 and reasonably fast CPUs for
 			  both the transmitter and receiver. More
 			  frequent PSNPs gives the transmitter more
@@ -553,7 +559,7 @@
 		    transmit before waiting for an acknowledgment. The
 		    size of the receive window, in units of LSPs, is
 		    initialized with the value advertised by the
-		    receiver in the LSP Burst Window sub-TLV. If no
+		    receiver in the Receive Window sub-TLV. If no
 		    value is advertised, the transmitter should
 		    initialize rwin with its own local value.
 				</t>
@@ -845,7 +851,9 @@
 		<c>Flags</c>
 		<c>5</c>
 		<c>Partial SNP Interval</c>
-		<c>6-255</c>
+		<c>6</c>
+		<c>Receive Window</c>
+		<c>7-255</c>
 		<c>Unassigned</c>
 	</texttable>
       <t>This document also requests IANA to create a new registry for
