@@ -10,7 +10,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="exp" docName="draft-ietf-lsr-isis-fast-flooding-01" ipr="trust200902">
+<rfc category="exp" docName="draft-ietf-lsr-isis-fast-flooding-02" ipr="trust200902">
 	<front>
 		<title abbrev="IS-IS Fast Flooding">IS-IS Fast Flooding</title>
 		<author fullname="Bruno Decraene" initials="B." surname="Decraene">
@@ -159,7 +159,7 @@
 
 
 
-		<date year="2022"/>
+		<date year="2023"/>
 		<abstract>
 		  <t>
 		    Current Link State Protocol Data Unit (PDU)
@@ -535,7 +535,7 @@
 
 		<section anchor="Overview" title="Overview">
 			<t>Ensuring the goodput between two entities is a layer 4 responsibility as per the OSI model and a typical example is the TCP protocol defined in
-				<xref target="RFC0793">RFC 793</xref> and relies on the flow control, congestion control, and reliability mechanisms of the protocol.
+				<xref target="RFC9293">RFC 9293</xref> and relies on the flow control, congestion control, and reliability mechanisms of the protocol.
 			</t>
 			<t>Flow control creates a control loop between a transmiter and a receiver so that the transmitter does not overwhelm the receiver. TCP provides a mean for the receiver to govern the amount of data sent by the sender through the use of a sliding window.</t>
 			<t>Congestion control creates multiple interacting control loops between multiple transmitters and multiple receivers to prevent the transmitters  from overwhelming the overall network. For an IS-IS adjacency, the network between two IS-IS neighbors is relatively limited in scope and consist of a link that is typically over-sized compared to the capability of the IS-IS speakers, but may also includes components inside both routers such as a switching fabric, line card CPU, and forwarding plane buffers that may experience congestion. These resources may be shared across multiple IS-IS adjacencies for the system and it is the responsibility of congestion control to ensure that these are shared reasonably.</t>
@@ -928,7 +928,7 @@
 </references>
 <references title="Informative References">
 <?rfc include="reference.I-D.ietf-lsr-dynamic-flooding"?>
-<?rfc include="reference.RFC.0793"?>
+<?rfc include="reference.RFC.9293"?>
 <?rfc include="reference.RFC.2973"?>
 <?rfc include="reference.RFC.5681"?>
 </references>
@@ -937,6 +937,7 @@
 <t>IND 00: Initial version.</t>
 <t>WG 00: No change.</t>
 <t>WG 01: IANA allocated code point.</t>
+<t>WG 02: No change.</t>
 
 </section>
     <section anchor="open-issues" title="Issues for Further Discussion">
